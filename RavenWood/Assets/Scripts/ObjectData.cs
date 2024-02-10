@@ -6,4 +6,5 @@ public class ObjectData : MonoBehaviour
 {
     public int id;
     public bool isClue;
+    public bool isMove;
 }
