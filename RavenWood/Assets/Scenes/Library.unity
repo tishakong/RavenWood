@@ -17440,7 +17440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1773447340755094, guid: 547cb090302650a45a642efa6818188c, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 1988655569859010, guid: 547cb090302650a45a642efa6818188c, type: 3}
       propertyPath: m_TagString
@@ -17528,6 +17528,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1773447340755094, guid: 547cb090302650a45a642efa6818188c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 826168453}
+    - targetCorrespondingSourceObject: {fileID: 1773447340755094, guid: 547cb090302650a45a642efa6818188c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 826168455}
     - targetCorrespondingSourceObject: {fileID: 1479463707231070, guid: 547cb090302650a45a642efa6818188c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 826168450}
@@ -17593,7 +17596,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -17650,6 +17653,27 @@ MonoBehaviour:
   id: 900
   isClue: 0
   isMove: 0
+--- !u!95 &826168455
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826168448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 179d7ad3b32fb854086aeacdc0ae8596, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &837086231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 110180, guid: b8606597093e47dbb476bdb09448f37f, type: 3}
@@ -18229,6 +18253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: O_NightstandDetail03
       objectReference: {fileID: 0}
+    - target: {fileID: 1479463707231070, guid: 547cb090302650a45a642efa6818188c, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 1988655569859010, guid: 547cb090302650a45a642efa6818188c, type: 3}
       propertyPath: m_TagString
       value: Object
@@ -18318,6 +18346,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1479463707231070, guid: 547cb090302650a45a642efa6818188c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1044405980}
+    - targetCorrespondingSourceObject: {fileID: 1479463707231070, guid: 547cb090302650a45a642efa6818188c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1044405987}
   m_SourcePrefab: {fileID: 100100000, guid: 547cb090302650a45a642efa6818188c, type: 3}
 --- !u!4 &1044405975 stripped
 Transform:
@@ -18437,6 +18468,27 @@ MonoBehaviour:
   id: 900
   isClue: 0
   isMove: 0
+--- !u!95 &1044405987
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044405977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73b1e7a6330648a448a0d4f403a85ed4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1046652601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
@@ -18899,6 +18951,8 @@ MonoBehaviour:
   doorAnimators:
   - {fileID: 683425570}
   - {fileID: 1957188793}
+  - {fileID: 826168455}
+  - {fileID: 1044405987}
 --- !u!23 &1237489591
 MeshRenderer:
   m_ObjectHideFlags: 0
