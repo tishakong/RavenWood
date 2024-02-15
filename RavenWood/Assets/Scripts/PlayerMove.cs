@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
     Rigidbody rigid;
+
 
     public float walkSpeed;
     public float lookSensitivity;
@@ -12,8 +14,13 @@ public class PlayerMove : MonoBehaviour
     private float currentCameraRotationX = 0;
     public Camera theCamera;
 
+    public float ObjectDistance;
+
     GameObject scanObject;
     public GameManager manager;
+
+    public Animator anim;
+    bool isOpen = false;
 
     void Awake()
     {
@@ -22,10 +29,19 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        rigid.AddForce(new Vector3 (h,0, v),ForceMode.Impulse);
+
         Move();
         CameraRotation();
         CharacterRotation();
+    }
 
+
+    private void Update()
+    {
         // Scan Object & Action
         if (Input.GetMouseButtonDown(0))
         {
@@ -35,7 +51,28 @@ public class PlayerMove : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 scanObject = hit.collider.gameObject;
-                manager.Action(scanObject);
+
+                // ��ü�� �÷��̾� ������ �Ÿ� ����
+                float distance = Vector3.Distance(transform.position, scanObject.transform.position);
+
+                if (distance < ObjectDistance)
+                {
+                    // ������
+                    if (scanObject.CompareTag("Door"))
+                    {
+
+                        anim.SetBool("isOpen", true);
+
+                    }
+                    // ��ü ����â ����
+                    else if (scanObject.CompareTag("Object"))
+                    {
+                        manager.Action(scanObject);
+
+                    }
+                }
+
+
             }
             else
             {
