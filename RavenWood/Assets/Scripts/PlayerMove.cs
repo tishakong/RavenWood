@@ -6,17 +6,16 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     Rigidbody rigid;
-<<<<<<< Updated upstream
-=======
+
 
     public float walkSpeed;
     public float lookSensitivity;
     public float cameraRotationLimit;
     private float currentCameraRotationX = 0;
     public Camera theCamera;
+
     public float ObjectDistance;
 
->>>>>>> Stashed changes
     GameObject scanObject;
     public GameManager manager;
 
@@ -30,16 +29,16 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-<<<<<<< Updated upstream
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         rigid.AddForce(new Vector3 (h,0, v),ForceMode.Impulse);
-=======
+
         Move();
         CameraRotation();
         CharacterRotation();
     }
->>>>>>> Stashed changes
+
 
     private void Update()
     {
@@ -53,19 +52,19 @@ public class PlayerMove : MonoBehaviour
             {
                 scanObject = hit.collider.gameObject;
 
-                // ¹°Ã¼¿Í ÇÃ·¹ÀÌ¾î »çÀÌÀÇ °Å¸® ÃøÁ¤
+                // ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½
                 float distance = Vector3.Distance(transform.position, scanObject.transform.position);
 
                 if (distance < ObjectDistance)
                 {
-                    // ¹®¿­±â
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     if (scanObject.CompareTag("Door"))
                     {
 
                         anim.SetBool("isOpen", true);
 
                     }
-                    // ¹°Ã¼ ¼³¸íÃ¢ ¶ç¿ì±â
+                    // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½
                     else if (scanObject.CompareTag("Object"))
                     {
                         manager.Action(scanObject);
@@ -80,5 +79,38 @@ public class PlayerMove : MonoBehaviour
                 scanObject = null;
             }
         }
+    }
+
+    private void Move()
+    {
+        float moveDirX = Input.GetAxisRaw("Horizontal");
+        float moveDirZ = Input.GetAxisRaw("Vertical");
+
+        Vector3 moveHorizontal = transform.right * moveDirX;
+        Vector3 moveVertical = transform.forward * moveDirZ;
+
+        Vector3 velocity = (moveHorizontal + moveVertical).normalized * walkSpeed;
+
+        rigid.MovePosition(transform.position + velocity * Time.deltaTime);
+
+    }
+
+    private void CharacterRotation()
+    {
+        float yRotation = Input.GetAxisRaw("Mouse X");
+        Vector3 characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
+        rigid.MoveRotation(rigid.rotation * Quaternion.Euler(characterRotationY));
+    }
+
+    private void CameraRotation()
+    {
+        float xRotation = Input.GetAxisRaw("Mouse Y");
+        float cameraRotationX = xRotation * lookSensitivity;
+        currentCameraRotationX -= cameraRotationX;
+        currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+
+        theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+        
+    
     }
 }
