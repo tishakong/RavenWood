@@ -19,12 +19,17 @@ public class PlayerMove : MonoBehaviour
     GameObject scanObject;
     public GameManager manager;
 
-    public Animator anim;
-    bool isOpen = false;
+    public Animator[] doorAnimators;  // 여러 개의 문을 저장할 배열
+    bool[] isOpenArray;               // 각 문의 상태를 저장하는 배열
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        isOpenArray = new bool[doorAnimators.Length];
     }
 
     void FixedUpdate()
@@ -52,19 +57,24 @@ public class PlayerMove : MonoBehaviour
             {
                 scanObject = hit.collider.gameObject;
 
-                // ��ü�� �÷��̾� ������ �Ÿ� ����
+                // 오브젝트와 플레이어 사이의 거리
                 float distance = Vector3.Distance(transform.position, scanObject.transform.position);
 
                 if (distance < ObjectDistance)
                 {
-                    // ������
+                    // 문 열기
                     if (scanObject.CompareTag("Door"))
                     {
 
-                        anim.SetBool("isOpen", true);
+                        Animator doorAnimator = scanObject.GetComponentInParent<Animator>();
+
+                        if (doorAnimator != null)
+                        {
+                            OpenOrCloseDoor(doorAnimator);
+                        }
 
                     }
-                    // ��ü ����â ����
+                    // 오브젝트 상태창 띄우기
                     else if (scanObject.CompareTag("Object"))
                     {
                         manager.Action(scanObject);
@@ -112,5 +122,27 @@ public class PlayerMove : MonoBehaviour
         theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
         
     
+    }
+
+    // 문 여는 함수
+
+    void OpenOrCloseDoor(Animator doorAnimator)
+    {
+        int doorIndex = System.Array.IndexOf(doorAnimators, doorAnimator);
+
+        if (doorIndex != -1) // 해당하는 문을 찾았을 경우
+        {
+            Debug.Log("문이다");
+            if (isOpenArray[doorIndex])
+            {
+                doorAnimator.SetBool("isOpen", false);
+                isOpenArray[doorIndex] = false;
+            }
+            else
+            {
+                doorAnimator.SetBool("isOpen", true);
+                isOpenArray[doorIndex] = true;
+            }
+        }
     }
 }
