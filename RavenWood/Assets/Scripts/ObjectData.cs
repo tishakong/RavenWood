@@ -8,8 +8,9 @@ public class ObjectData : MonoBehaviour
     public bool isClue;
     public bool isZoom;
 
-    //[SerializeField]
+    
     public Vector3 savedPosition;
+    public Quaternion savedRotation;
 
     // Unity callback method
     void OnValidate()
@@ -18,6 +19,7 @@ public class ObjectData : MonoBehaviour
         if (!isZoom)
         {
             savedPosition = Vector3.zero;
+            savedRotation = Quaternion.identity;
         }
     }
 }

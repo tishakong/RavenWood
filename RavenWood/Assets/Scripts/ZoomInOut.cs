@@ -31,6 +31,7 @@ public class ZoomInOut : MonoBehaviour
                     if (scanObject.CompareTag("Zoom"))
                     {
                         SwitchCameraPosition();
+                        transform.SetParent(null);
                     }
                 }
             }
@@ -44,6 +45,7 @@ public class ZoomInOut : MonoBehaviour
         if (objData != null && objData.isZoom)
         {
             transform.position = objData.savedPosition;
+            transform.rotation = objData.savedRotation;
             playerMove.DisableRotation();
         }
     }
