@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Object
+  - Zoom
   layers:
   - Default
   - TransparentFX

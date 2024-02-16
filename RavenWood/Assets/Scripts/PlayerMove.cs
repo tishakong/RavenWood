@@ -107,22 +107,42 @@ public class PlayerMove : MonoBehaviour
 
     private void CharacterRotation()
     {
-        float yRotation = Input.GetAxisRaw("Mouse X");
-        Vector3 characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
-        rigid.MoveRotation(rigid.rotation * Quaternion.Euler(characterRotationY));
+        if (rotationEnabled)
+        {
+            float yRotation = Input.GetAxisRaw("Mouse X");
+            Vector3 characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
+            rigid.MoveRotation(rigid.rotation * Quaternion.Euler(characterRotationY));
+        }
     }
 
     private void CameraRotation()
     {
-        float xRotation = Input.GetAxisRaw("Mouse Y");
-        float cameraRotationX = xRotation * lookSensitivity;
-        currentCameraRotationX -= cameraRotationX;
-        currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+        if (rotationEnabled)
+        {
+            float xRotation = Input.GetAxisRaw("Mouse Y");
+            float cameraRotationX = xRotation * lookSensitivity;
+            currentCameraRotationX -= cameraRotationX;
+            currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
 
-        theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
-        
-    
+            theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+        }
     }
+
+    // rotationEnabled 변수를 추가하여 코드를 비활성화할지 여부를 제어
+    private bool rotationEnabled = true;
+
+    // 비활성화하는 함수
+    public void DisableRotation()
+    {
+        rotationEnabled = false;
+    }
+
+    // 활성화하는 함수
+    public void EnableRotation()
+    {
+        rotationEnabled = true;
+    }
+
 
     // 문 여는 함수
 
@@ -132,7 +152,6 @@ public class PlayerMove : MonoBehaviour
 
         if (doorIndex != -1) // 해당하는 문을 찾았을 경우
         {
-            Debug.Log("문이다");
             if (isOpenArray[doorIndex])
             {
                 doorAnimator.SetBool("isOpen", false);

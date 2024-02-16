@@ -5613,7 +5613,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 100
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &260844506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5964,6 +5965,7 @@ GameObject:
   - component: {fileID: 323272483}
   - component: {fileID: 323272485}
   - component: {fileID: 323272484}
+  - component: {fileID: 323272486}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6045,6 +6047,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &323272486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323272482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393a33b7c794feb45b3f10415ad0531a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectDistance: 5
+  playerMove: {fileID: 1237489590}
 --- !u!1001 &329893403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6164,7 +6180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 700
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &345729106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6593,7 +6610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 400
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &444533473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7084,7 +7102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   isClue: 1
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &640186126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17637,7 +17656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   isClue: 0
-  isMove: 1
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &826168454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17652,7 +17672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 900
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &826168455
 Animator:
   serializedVersion: 5
@@ -17735,7 +17756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 300
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &869944052
 GameObject:
   m_ObjectHideFlags: 0
@@ -17965,7 +17987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 800
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &884279821 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 142046, guid: 7898d54b47c340b59a0491e6a61aded1, type: 3}
@@ -17985,7 +18008,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 600
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &908824226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4936635111863572, guid: 33aa3234397faa044af73f4700427d62, type: 3}
@@ -18148,7 +18172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 10
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &954658089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18452,7 +18477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   isClue: 0
-  isMove: 1
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1044405984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18467,7 +18493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 900
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &1044405987
 Animator:
   serializedVersion: 5
@@ -18858,7 +18885,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 400
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1237489587
 GameObject:
   m_ObjectHideFlags: 0
@@ -19852,7 +19880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 40
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1403061879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19974,12 +20003,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 200
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1409996602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4177046354630628, guid: 9d012b73caba62246906034d78994c42, type: 3}
   m_PrefabInstance: {fileID: 1098894023}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1420347972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1420347975}
+  - component: {fileID: 1420347974}
+  - component: {fileID: 1420347973}
+  - component: {fileID: 1420347976}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Zoom
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1420347973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420347972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1420347974
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420347972}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1420347975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420347972}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.07, y: 2.69, z: 11.86}
+  m_LocalScale: {x: 2.8140209, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1420347976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420347972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a1efbcf602c26488a2ccd8336189f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1000
+  isClue: 0
+  isZoom: 1
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1426145337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25851,7 +25960,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 800
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1646104191
 GameObject:
   m_ObjectHideFlags: 0
@@ -25954,7 +26064,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 200
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1671333742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26053,7 +26164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 20
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1671333749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26233,7 +26345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 500
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1696662503
 GameObject:
   m_ObjectHideFlags: 0
@@ -26643,7 +26756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 30
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1789643759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26756,7 +26870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   isClue: 1
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1798234035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31846,7 +31961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 200
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1859215013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7ea1b4827d80a8c46807bd4db372acce, type: 3}
@@ -31887,7 +32003,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 800
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1876560614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31986,7 +32103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 200
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1876560619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37386,7 +37504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 200
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2049493020 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 189114, guid: b2c20920a51e43e39c7bc73ae33fa1df, type: 3}
@@ -37406,7 +37525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 300
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &2054240422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37526,7 +37646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 800
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &2059802677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37618,7 +37739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   isClue: 1
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2081376079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 173006, guid: d0e39f206f1e4ca082d2fd38f5475d00, type: 3}
@@ -37638,7 +37760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 50
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &2081376085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37679,7 +37802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 100
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &2093235576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37768,7 +37892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 200
   isClue: 0
-  isMove: 0
+  isZoom: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2112031564
 GameObject:
   m_ObjectHideFlags: 0
@@ -37837,3 +37962,4 @@ SceneRoots:
   - {fileID: 1353172801}
   - {fileID: 579982424}
   - {fileID: 1145616495}
+  - {fileID: 1420347975}
