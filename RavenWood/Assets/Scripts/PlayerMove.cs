@@ -40,8 +40,10 @@ public class PlayerMove : MonoBehaviour
         rigid.AddForce(new Vector3 (h,0, v),ForceMode.Impulse);
 
         Move();
-        CameraRotation();
-        CharacterRotation();
+        if(Input.GetMouseButton(1)) {
+            CameraRotation();
+            CharacterRotation();
+        }
     }
 
 
