@@ -82,6 +82,18 @@ public class PlayerMove : MonoBehaviour
                         manager.Action(scanObject);
 
                     }
+
+                    // 획득 가능 오브젝트
+                    else if (scanObject.CompareTag("ObtainableObject"))
+                    {
+
+                        if (scanObject.name == "Inventory")
+                        {
+                            Destroy(scanObject);
+                            manager.ShowInventory();
+                        }
+
+                    }
                 }
 
 
