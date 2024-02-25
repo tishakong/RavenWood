@@ -6,8 +6,8 @@ public class DragAbleObject : MonoBehaviour
     bool isDragging = false;
     float clickTime = 0f;
     float dragDelay = 0.5f; // 움직이기 위한 최소 클릭 시간
-    Rigidbody rigidbody;
-    Collider collider;
+    new Rigidbody rigidbody;
+    new Collider collider;
 
     private void Start()
     {
