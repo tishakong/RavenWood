@@ -33,7 +33,7 @@ public class ClickManager : MonoBehaviour
         talkData.Add(50, "생각보다 시간이 많이 남지 않았다.");
 
         // 1000번대: 힌트창 나오는 오브젝트
-        talkData.Add(1000, "해독제 만드는 법\n\n준비물\n1. 1. 젠티안 우린 물 한 병\n2. 안젤리카 이파리 반 개\n3. 토마토 반 개\n4. 물 한 병");
+        talkData.Add(1000, "해독제 만드는 법\n\n준비물\n1. 젠티안 우린 물 한 병\n2. 안젤리카 이파리 반 개\n3. 토마토 반 개\n4. 물 한 병");
     }
 
     public string GetTalk(int id)

@@ -7,14 +7,18 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public ClickManager clickManager;
-    public GameObject talkPanel;        // °ÔÀÓ ÀÎÆ÷Ã¢
-    public GameObject Inventory;        // ÀÎº¥Åä¸® UI
-    public Text timerText;              // Á¦ÇÑ ½Ã°£ È®ÀÎ ÅØ½ºÆ®
-    private float timeRemaining;        // ÀÜ¿© ½Ã°£ °ü¸® º¯¼ö
-    public TextMeshProUGUI talkText;    // °ÔÀÓÃ¢¿¡ ¶ß´Â ÅØ½ºÆ®
-    public GameObject scanObject;       // ÇÃ·¹ÀÌ¾î°¡ Á¶»çÇÑ ´ë»ó
-    public bool isAction;               // »óÅÂ ÀúÀå¿ë º¯¼ö
-    public bool isInventoryActivate;    // ÀÎº¥Åä¸® È°¼ºÈ­ ¿©ºÎ È®ÀÎ º¯¼ö
+
+    public PlayerMove playerMove;
+    public GameObject talkPanel;        // ì¸í¬ì°½ UI
+    public GameObject hintPanel;        // íŒíŠ¸ì°½ UI
+    public GameObject Inventory;        // ì¸ë²¤í† ë¦¬ UI
+    public Text timerText;              // ì œí•œ ì‹œê°„ í™•ì¸ í…ìŠ¤íŠ¸
+    private float timeRemaining;        // ì”ì—¬ ì‹œê°„ ê´€ë¦¬ ë³€ìˆ˜
+    public TextMeshProUGUI talkText;    // ê²Œì„ì°½ì— ëœ¨ëŠ” í…ìŠ¤íŠ¸
+    public TextMeshProUGUI hintText;    // íŒíŠ¸ì°½ì— ëœ¨ëŠ” í…ìŠ¤íŠ¸
+    public GameObject scanObject;       // í”Œë ˆì´ì–´ê°€ ì¡°ì‚¬í•œ ëŒ€ìƒ
+    public bool isAction;               // ìƒíƒœ ì €ì¥ìš© ë³€ìˆ˜
+    public bool isInventoryActivate;    // ì¸ë²¤í† ë¦¬ í™œì„±í™” ì—¬ë¶€ í™•ì¸ ë³€ìˆ˜
 
     private float panelHideDelay = 5f;
 
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            timerText.text = "Á¦ÇÑ ½Ã°£ ÃÊ°ú(°ÔÀÓ¿À¹ö)";
+            timerText.text = "ì œí•œ ì‹œê°„ ì´ˆê³¼(ê²Œì„ì˜¤ë²„)";
         }
     }
 
@@ -45,22 +49,22 @@ public class GameManager : MonoBehaviour
     {
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
-        Talk(objData.id);
+        Talk(objData.id, objData.isClue);
 
-        talkPanel.SetActive(isAction);
-
-        // ÀÎÆ÷Ã¢
+        // ì¸í¬ì°½
         if (!objData.isClue)
         {
             if (isAction)
             {
+                talkPanel.SetActive(isAction);
                 Invoke("DelayedHidePanel", panelHideDelay);
             }
         }
-        // ÈùÆ®Ã¢
+        // íŒíŠ¸ì°½
         else
         {
-
+            playerMove.DisableRotation();
+            hintPanel.SetActive(isAction);
         }
     }
 
@@ -70,25 +74,37 @@ public class GameManager : MonoBehaviour
         isInventoryActivate = true;
     }
 
-    void Talk(int id)
+    void Talk(int id, bool isClue)
+
     {
-        int talkIndex = 0;
         string talkData = clickManager.GetTalk(id);
 
-        if (talkIndex > 0)
+        if (!isClue)
         {
-            isAction = false;
-            return;
+            talkText.text = talkData;
         }
-
-        talkText.text = talkData;
+        else
+        {
+            hintText.text = talkData;
+        }
         isAction = true;
-        talkIndex++;
+
     }
 
     void DelayedHidePanel()
     {
         talkPanel.SetActive(false);
         isAction = false;
+    }
+
+    public void BackButton()
+    {
+        // íŒíŠ¸ì°½
+        if (isAction)
+        {
+            isAction = false;
+            hintPanel.SetActive(isAction);
+            playerMove.EnableRotation();
+        }
     }
 }
