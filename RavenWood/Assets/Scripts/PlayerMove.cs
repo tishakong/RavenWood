@@ -85,8 +85,6 @@ public class PlayerMove : MonoBehaviour
                             manager.Action(scanObject);
 
                         }
-
-
                         // 획득 가능 오브젝트
                         else if (scanObject.CompareTag("ObtainableObject"))
                         {
@@ -99,9 +97,8 @@ public class PlayerMove : MonoBehaviour
 
                         }
                     }
+
                 }
-
-
             }
             else
             {

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
-        Talk(objData.id, objData.isClue);
+        Talk(objData.id);
 
         // 인포창
         if (!objData.isClue)
@@ -74,12 +74,12 @@ public class GameManager : MonoBehaviour
         isInventoryActivate = true;
     }
 
-    void Talk(int id, bool isClue)
 
+    void Talk(int id, bool isClue)
     {
         string talkData = clickManager.GetTalk(id);
 
-        if (!isClue)
+        if (id < 1000)
         {
             talkText.text = talkData;
         }
