@@ -14,7 +14,8 @@ public class PlayerMove : MonoBehaviour
     private float currentCameraRotationX = 0;
     public Camera theCamera;
 
-    public float ObjectDistance;
+    public float ObjectDistance;      // 코드를 비활성화할지 여부
+    private bool rotationEnabled = true;
 
     GameObject scanObject;
     public GameManager manager;
@@ -62,17 +63,32 @@ public class PlayerMove : MonoBehaviour
 
                 if (distance < ObjectDistance)
                 {
-                    // 문 열기
-                    if (scanObject.CompareTag("Door"))
+                    if (manager.isAction)
                     {
-
-                        Animator doorAnimator = scanObject.GetComponentInParent<Animator>();
-
-                        if (doorAnimator != null)
+                        scanObject = null;
+                    }
+                    else
+                    {
+                        // 문 열기
+                        if (scanObject.CompareTag("Door"))
                         {
-                            OpenOrCloseDoor(doorAnimator);
+
+                            Animator doorAnimator = scanObject.GetComponentInParent<Animator>();
+
+                            if (doorAnimator != null)
+                            {
+                                OpenOrCloseDoor(doorAnimator);
+                            }
+
+                        }
+                        // 오브젝트 상태창 띄우기
+                        else if (scanObject.CompareTag("Object"))
+                        {
+                            manager.Action(scanObject);
+
                         }
 
+<<<<<<< Updated upstream
                     }
                     // 오브젝트 상태창 띄우기
                     else if (scanObject.CompareTag("Object"))
@@ -80,6 +96,21 @@ public class PlayerMove : MonoBehaviour
                         manager.Action(scanObject);
 
                     }
+=======
+                        // 획득 가능 오브젝트
+                        else if (scanObject.CompareTag("ObtainableObject"))
+                        {
+
+                            if (scanObject.name == "Inventory")
+                            {
+                                Destroy(scanObject);
+                                manager.ShowInventory();
+                            }
+
+                        }
+                    }
+
+>>>>>>> Stashed changes
                 }
 
 
@@ -127,9 +158,6 @@ public class PlayerMove : MonoBehaviour
             theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
         }
     }
-
-    // rotationEnabled 변수를 추가하여 코드를 비활성화할지 여부를 제어
-    private bool rotationEnabled = true;
 
     // 비활성화하는 함수
     public void DisableRotation()
