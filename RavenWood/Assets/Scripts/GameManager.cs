@@ -22,9 +22,18 @@ public class GameManager : MonoBehaviour
 
         talkPanel.SetActive(isAction);
 
-        if (isAction)
+        // 인포창
+        if (!objData.isClue)
         {
-            Invoke("DelayedHidePanel", panelHideDelay);
+            if (isAction)
+            {
+                Invoke("DelayedHidePanel", panelHideDelay);
+            }
+        }
+        // 힌트창
+        else
+        {
+
         }
     }
 
