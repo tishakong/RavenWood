@@ -5,7 +5,10 @@ using UnityEngine;
 public class ZoomInOut : MonoBehaviour
 {
     GameObject scanObject;
+    public Quaternion currentRotation;
     public float ObjectDistance;
+    public GameObject potionPanel;
+    public GameObject backButton;
 
     public PlayerMove playerMove;
 
@@ -27,8 +30,11 @@ public class ZoomInOut : MonoBehaviour
                 {
                     if (scanObject.CompareTag("Zoom"))
                     {
+                        currentRotation = transform.rotation;
                         SwitchCameraPosition();
                         transform.SetParent(null);
+                        potionPanel.SetActive(true);
+                        backButton.SetActive(true);
                     }
                 }
             }
@@ -45,5 +51,15 @@ public class ZoomInOut : MonoBehaviour
             transform.rotation = objData.savedRotation;
             playerMove.DisableRotation();
         }
+    }
+
+    public void CurrentCameraPosition()
+    {
+        potionPanel.SetActive(false);
+        backButton.SetActive(false);
+        playerMove.EnableRotation();
+        transform.SetParent(playerMove.transform);
+        transform.rotation = currentRotation;
+        transform.localPosition = new Vector3(0f, 0.6f, 0f);
     }
 }

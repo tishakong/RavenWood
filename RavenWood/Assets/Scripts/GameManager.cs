@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public ClickManager clickManager;
+    public ZoomInOut zoom;
 
     public PlayerMove playerMove;
     public GameObject talkPanel;        // 인포창 UI
