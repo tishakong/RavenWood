@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
-        Talk(objData.id);
+        Talk(objData.id, objData.isClue);
 
         // 인포창
         if (!objData.isClue)
