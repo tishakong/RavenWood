@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public ClickManager clickManager;
 <<<<<<< Updated upstream
     public GameObject talkPanel;        // 게임 인포창
+<<<<<<< Updated upstream
 =======
     public PlayerMove playerMove;
     public GameObject talkPanel;        // 인포창 UI
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
     public GameObject Inventory;        // 인벤토리 UI
     public Text timerText;              // 제한 시간 확인 텍스트
     private float timeRemaining;        // 잔여 시간 관리 변수
+>>>>>>> Stashed changes
+=======
+    public GameObject hintPanel;        // 힌트창 UI
 >>>>>>> Stashed changes
     public TextMeshProUGUI talkText;    // 게임창에 뜨는 텍스트
     public TextMeshProUGUI hintText;    // 힌트창에 뜨는 텍스트
