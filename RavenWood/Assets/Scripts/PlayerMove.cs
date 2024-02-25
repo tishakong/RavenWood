@@ -87,16 +87,6 @@ public class PlayerMove : MonoBehaviour
                             manager.Action(scanObject);
 
                         }
-
-<<<<<<< Updated upstream
-                    }
-                    // 오브젝트 상태창 띄우기
-                    else if (scanObject.CompareTag("Object"))
-                    {
-                        manager.Action(scanObject);
-
-                    }
-=======
                         // 획득 가능 오브젝트
                         else if (scanObject.CompareTag("ObtainableObject"))
                         {
@@ -110,10 +100,7 @@ public class PlayerMove : MonoBehaviour
                         }
                     }
 
->>>>>>> Stashed changes
                 }
-
-
             }
             else
             {

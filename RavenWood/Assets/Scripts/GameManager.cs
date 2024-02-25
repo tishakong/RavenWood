@@ -7,32 +7,48 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public ClickManager clickManager;
-<<<<<<< Updated upstream
-    public GameObject talkPanel;        // 게임 인포창
-<<<<<<< Updated upstream
-=======
     public PlayerMove playerMove;
     public GameObject talkPanel;        // 인포창 UI
     public GameObject hintPanel;        // 힌트창 UI
     public GameObject Inventory;        // 인벤토리 UI
     public Text timerText;              // 제한 시간 확인 텍스트
     private float timeRemaining;        // 잔여 시간 관리 변수
->>>>>>> Stashed changes
-=======
-    public GameObject hintPanel;        // 힌트창 UI
->>>>>>> Stashed changes
     public TextMeshProUGUI talkText;    // 게임창에 뜨는 텍스트
     public TextMeshProUGUI hintText;    // 힌트창에 뜨는 텍스트
     public GameObject scanObject;       // 플레이어가 조사한 대상
     public bool isAction;               // 상태 저장용 변수
+    public bool isInventoryActivate;    // 인벤토리 활성화 여부 확인 변수
 
     private float panelHideDelay = 5f;
+
+    private void Awake()
+    {
+        Inventory.SetActive(false);
+        isInventoryActivate = false;
+        timeRemaining = 600.0f;
+    }
+
+    void Update()
+    {
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+            int minutes = Mathf.FloorToInt(timeRemaining / 60);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60);
+            string timeString = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timerText.text = timeString;
+        }
+        else
+        {
+            timerText.text = "제한 시간 초과(게임오버)";
+        }
+    }
 
     public void Action(GameObject scanObj)
     {
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
-        Talk(objData.id, objData.isClue);
+        Talk(objData.id);
 
         // 인포창
         if (!objData.isClue)
@@ -51,21 +67,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
-    void Talk(int id)
-=======
     public void ShowInventory()
     {
         Inventory.SetActive(true);
         isInventoryActivate = true;
     }
 
-    void Talk(int id, bool isClue)
->>>>>>> Stashed changes
+    void Talk(int id)
     {
         string talkData = clickManager.GetTalk(id);
 
-        if (!isClue)
+        if (id < 1000)
         {
             talkText.text = talkData;
         }
