@@ -35,14 +35,12 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        rigid.AddForce(new Vector3 (h,0, v),ForceMode.Impulse);
-
         Move();
-        CameraRotation();
-        CharacterRotation();
+
+        if(Input.GetMouseButton(1)) {
+            CameraRotation();
+            CharacterRotation();
+        }
     }
 
 
