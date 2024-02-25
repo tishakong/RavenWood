@@ -5484,7 +5484,9 @@ MonoBehaviour:
   clickManager: {fileID: 913593529}
   playerMove: {fileID: 1237489590}
   talkPanel: {fileID: 1909300753}
+
   hintPanel: {fileID: 379887015}
+
   Inventory: {fileID: 52279528}
   timerText: {fileID: 1095450318}
   talkText: {fileID: 1397329012}
@@ -18890,6 +18892,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
   m_PrefabInstance: {fileID: 2059802677}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!1 &1053784547
 GameObject:
   m_ObjectHideFlags: 0
@@ -19031,6 +19034,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053784547}
   m_CullTransparentMesh: 1
+
 --- !u!1 &1095450316
 GameObject:
   m_ObjectHideFlags: 0
@@ -20317,10 +20321,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1909300754}
+
   - {fileID: 1095450317}
   - {fileID: 52279529}
   - {fileID: 379887016}
   - {fileID: 850900913}
+
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

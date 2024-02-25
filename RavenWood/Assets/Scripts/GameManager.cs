@@ -7,26 +7,43 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public ClickManager clickManager;
-<<<<<<< Updated upstream
-    public GameObject talkPanel;        // °ÔÀÓ ÀÎÆ÷Ã¢
-<<<<<<< Updated upstream
-=======
+
     public PlayerMove playerMove;
-    public GameObject talkPanel;        // ÀÎÆ÷Ã¢ UI
-    public GameObject hintPanel;        // ÈùÆ®Ã¢ UI
-    public GameObject Inventory;        // ÀÎº¥Åä¸® UI
-    public Text timerText;              // Á¦ÇÑ ½Ã°£ È®ÀÎ ÅØ½ºÆ®
-    private float timeRemaining;        // ÀÜ¿© ½Ã°£ °ü¸® º¯¼ö
->>>>>>> Stashed changes
-=======
-    public GameObject hintPanel;        // ÈùÆ®Ã¢ UI
->>>>>>> Stashed changes
-    public TextMeshProUGUI talkText;    // °ÔÀÓÃ¢¿¡ ¶ß´Â ÅØ½ºÆ®
-    public TextMeshProUGUI hintText;    // ÈùÆ®Ã¢¿¡ ¶ß´Â ÅØ½ºÆ®
-    public GameObject scanObject;       // ÇÃ·¹ÀÌ¾î°¡ Á¶»çÇÑ ´ë»ó
-    public bool isAction;               // »óÅÂ ÀúÀå¿ë º¯¼ö
+    public GameObject talkPanel;        // ì¸í¬ì°½ UI
+    public GameObject hintPanel;        // íŒíŠ¸ì°½ UI
+    public GameObject Inventory;        // ì¸ë²¤í† ë¦¬ UI
+    public Text timerText;              // ì œí•œ ì‹œê°„ í™•ì¸ í…ìŠ¤íŠ¸
+    private float timeRemaining;        // ì”ì—¬ ì‹œê°„ ê´€ë¦¬ ë³€ìˆ˜
+    public TextMeshProUGUI talkText;    // ê²Œì„ì°½ì— ëœ¨ëŠ” í…ìŠ¤íŠ¸
+    public TextMeshProUGUI hintText;    // íŒíŠ¸ì°½ì— ëœ¨ëŠ” í…ìŠ¤íŠ¸
+    public GameObject scanObject;       // í”Œë ˆì´ì–´ê°€ ì¡°ì‚¬í•œ ëŒ€ìƒ
+    public bool isAction;               // ìƒíƒœ ì €ì¥ìš© ë³€ìˆ˜
+    public bool isInventoryActivate;    // ì¸ë²¤í† ë¦¬ í™œì„±í™” ì—¬ë¶€ í™•ì¸ ë³€ìˆ˜
 
     private float panelHideDelay = 5f;
+
+    private void Awake()
+    {
+        Inventory.SetActive(false);
+        isInventoryActivate = false;
+        timeRemaining = 600.0f;
+    }
+
+    void Update()
+    {
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+            int minutes = Mathf.FloorToInt(timeRemaining / 60);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60);
+            string timeString = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timerText.text = timeString;
+        }
+        else
+        {
+            timerText.text = "ì œí•œ ì‹œê°„ ì´ˆê³¼(ê²Œì„ì˜¤ë²„)";
+        }
+    }
 
     public void Action(GameObject scanObj)
     {
@@ -34,7 +51,7 @@ public class GameManager : MonoBehaviour
         ObjectData objData = scanObject.GetComponent<ObjectData>();
         Talk(objData.id, objData.isClue);
 
-        // ÀÎÆ÷Ã¢
+        // ì¸í¬ì°½
         if (!objData.isClue)
         {
             if (isAction)
@@ -43,7 +60,7 @@ public class GameManager : MonoBehaviour
                 Invoke("DelayedHidePanel", panelHideDelay);
             }
         }
-        // ÈùÆ®Ã¢
+        // íŒíŠ¸ì°½
         else
         {
             playerMove.DisableRotation();
@@ -51,9 +68,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
-    void Talk(int id)
-=======
     public void ShowInventory()
     {
         Inventory.SetActive(true);
@@ -61,7 +75,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Talk(int id, bool isClue)
->>>>>>> Stashed changes
+
     {
         string talkData = clickManager.GetTalk(id);
 
@@ -85,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void BackButton()
     {
-        // ÈùÆ®Ã¢
+        // íŒíŠ¸ì°½
         if (isAction)
         {
             isAction = false;
