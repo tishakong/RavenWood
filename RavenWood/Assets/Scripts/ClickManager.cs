@@ -14,6 +14,17 @@ public class ClickManager : MonoBehaviour
 
     void GenerateData()
     {
+        //0번대: 침실
+        talkData.Add(1,"방금까지 내가 누워있던 폭신한 침대이다.");
+        talkData.Add(2, "호수 그림이 그려져 있는 액자다.");
+        talkData.Add(3, "값이 비싸기로 유명한 발광석이다.");
+        talkData.Add(4, "약재를 상자 채로 거래한 내역이 쓰여있는 장부다.");
+        talkData.Add(5, "아무렇게나 쌓여있는 상자다. 힘을 주면 들 수 있을 것 같다.");
+        talkData.Add(6, "굳게 잠겨있다. 무겁지만 힘을 주면 들 수 있을 것 같다.");
+        talkData.Add(7, "무언가 들어있지만 잠겨있다. 힘을 주면 들 수 있을 것 같다.");
+        talkData.Add(8, "서랍이 있는 책상이다.");
+
+
         // 100번대: 가구
         talkData.Add(100, "수상한 잡동사니가 모여있다.");
         talkData.Add(200, "알 수 없는 책이 잔뜩 꽂혀있다.");
