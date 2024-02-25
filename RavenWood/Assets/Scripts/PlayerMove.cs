@@ -34,14 +34,12 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        rigid.AddForce(new Vector3 (h,0, v),ForceMode.Impulse);
-
         Move();
-        CameraRotation();
-        CharacterRotation();
+
+        if(Input.GetMouseButton(1)) {
+            CameraRotation();
+            CharacterRotation();
+        }
     }
 
 
@@ -78,6 +76,18 @@ public class PlayerMove : MonoBehaviour
                     else if (scanObject.CompareTag("Object"))
                     {
                         manager.Action(scanObject);
+
+                    }
+
+                    // 획득 가능 오브젝트
+                    else if (scanObject.CompareTag("ObtainableObject"))
+                    {
+
+                        if (scanObject.name == "Inventory")
+                        {
+                            Destroy(scanObject);
+                            manager.ShowInventory();
+                        }
 
                     }
                 }
