@@ -23,6 +23,8 @@ public class PlayerMove : MonoBehaviour
     public Animator[] doorAnimators;  // 여러 개의 문을 저장할 배열
     bool[] isOpenArray;               // 각 문의 상태를 저장하는 배열
 
+    public bool isPanel = false;      // 개별 패널 여는지 체크
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
