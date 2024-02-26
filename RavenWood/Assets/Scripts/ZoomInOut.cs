@@ -7,7 +7,7 @@ public class ZoomInOut : MonoBehaviour
     GameObject scanObject;
     public Quaternion currentRotation;
     public float ObjectDistance;
-    public GameObject potionPanel;
+    public GameObject[] Panel;
     public GameObject backButton;
 
     public PlayerMove playerMove;
@@ -23,6 +23,8 @@ public class ZoomInOut : MonoBehaviour
             {
                 scanObject = hit.collider.gameObject;
 
+                ObjectData data = scanObject.GetComponent<ObjectData>();
+
                 // 오브젝트와 플레이어 사이의 거리
                 float distance = Vector3.Distance(transform.position, scanObject.transform.position);
 
@@ -33,7 +35,7 @@ public class ZoomInOut : MonoBehaviour
                         currentRotation = transform.rotation;
                         SwitchCameraPosition();
                         transform.SetParent(null);
-                        potionPanel.SetActive(true);
+                        Panel[data.panelNum - 1].SetActive(true);
                         backButton.SetActive(true);
                     }
                 }
@@ -55,7 +57,9 @@ public class ZoomInOut : MonoBehaviour
 
     public void CurrentCameraPosition()
     {
-        potionPanel.SetActive(false);
+        ObjectData data = scanObject.GetComponent<ObjectData>();
+
+        Panel[data.panelNum - 1].SetActive(false);
         backButton.SetActive(false);
         playerMove.EnableRotation();
         transform.SetParent(playerMove.transform);
