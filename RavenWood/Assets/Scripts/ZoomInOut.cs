@@ -35,11 +35,12 @@ public class ZoomInOut : MonoBehaviour
                         currentRotation = transform.rotation;
                         SwitchCameraPosition();
                         transform.SetParent(null);
-                        if (data.panelNum != 0)
+                        if (data.isPanel)
                         {
                             Panel[data.panelNum - 1].SetActive(true);
                         }
                         backButton.SetActive(true);
+                        scanObject.SetActive(false);
                     }
                 }
             }
@@ -48,24 +49,17 @@ public class ZoomInOut : MonoBehaviour
 
     private void SwitchCameraPosition()
     {
+        playerMove.DisableRotation();
+
         ObjectData objData = scanObject.GetComponent<ObjectData>();
 
         if (objData != null && objData.isZoom)
         {
             transform.position = objData.savedPosition;
 
-            // Quaternion.Slerp 대신 Quaternion.Euler 사용
             Quaternion newRotation = Quaternion.identity * objData.savedRotation;
 
-
-            // 디버그 출력 추가
-            Debug.Log("Transform Rotation: " + transform.rotation);
-            Debug.Log("Saved Rotation " + objData.savedRotation);
-            Debug.Log("New Rotation: " + newRotation);
-
             transform.rotation = newRotation;
-
-            playerMove.DisableRotation();
         }
     }
 
@@ -74,7 +68,7 @@ public class ZoomInOut : MonoBehaviour
     {
         ObjectData data = scanObject.GetComponent<ObjectData>();
 
-        if (data.panelNum != 0){
+        if (data.isPanel){
             Panel[data.panelNum - 1].SetActive(false);
         }
         backButton.SetActive(false);
@@ -82,5 +76,6 @@ public class ZoomInOut : MonoBehaviour
         transform.SetParent(playerMove.transform);
         transform.rotation = currentRotation;
         transform.localPosition = new Vector3(0f, 0.6f, 0f);
+        scanObject.SetActive(true);
     }
 }
