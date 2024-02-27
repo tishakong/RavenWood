@@ -5953,6 +5953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickManager: {fileID: 913593529}
+  zoom: {fileID: 0}
   playerMove: {fileID: 1402348668}
   talkPanel: {fileID: 1909300753}
   hintPanel: {fileID: 379887015}
@@ -6158,6 +6159,7 @@ MonoBehaviour:
   id: 100
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &260844506
@@ -6705,6 +6707,7 @@ MonoBehaviour:
   id: 700
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &332345476
@@ -6878,6 +6881,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &339796558
@@ -7609,6 +7613,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!4 &402607983 stripped
@@ -7898,6 +7903,7 @@ MonoBehaviour:
   id: 400
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &444533473
@@ -8196,6 +8202,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &467465934
@@ -8213,6 +8220,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &494193027
@@ -8974,6 +8982,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &630843261
@@ -9097,6 +9106,7 @@ MonoBehaviour:
   id: 0
   isClue: 1
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &640186126
@@ -10384,6 +10394,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &762868061
@@ -10401,6 +10412,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &765973404
@@ -15467,7 +15479,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393a33b7c794feb45b3f10415ad0531a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRotation: {x: 0, y: 0, z: 0, w: 0}
   ObjectDistance: 5
+  Panel: []
+  backButton: {fileID: 0}
   playerMove: {fileID: 1402348668}
 --- !u!81 &810312038
 AudioListener:
@@ -20564,6 +20579,7 @@ MonoBehaviour:
   id: 0
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &826168454
@@ -20581,6 +20597,7 @@ MonoBehaviour:
   id: 900
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!95 &826168455
@@ -20763,6 +20780,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &837086231 stripped
@@ -20984,6 +21002,7 @@ MonoBehaviour:
   id: 300
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &869944052
@@ -21216,6 +21235,7 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &884279821 stripped
@@ -21238,6 +21258,7 @@ MonoBehaviour:
   id: 600
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &906605974
@@ -21486,8 +21507,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf72f388e00f9d43bffefcdf9124172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inventory: {fileID: 318113892}
+  isInventoryActivate: 0
   inventorySlotPrefab: {fileID: 0}
-  slotTransforms: []
+  slotTransforms:
+  - {fileID: 1623374524}
+  - {fileID: 522856121}
+  - {fileID: 215242707}
+  - {fileID: 1378146896}
+  - {fileID: 1549035647}
+  - {fileID: 549873022}
+  - {fileID: 2003118449}
+  - {fileID: 658843517}
+  - {fileID: 1959856125}
+  - {fileID: 1199709896}
   inventorySlots: []
 --- !u!4 &918581739
 Transform:
@@ -21646,6 +21679,7 @@ MonoBehaviour:
   id: 10
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!65 &954658089
@@ -21689,6 +21723,7 @@ MonoBehaviour:
   id: 8
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &968664167 stripped
@@ -22097,6 +22132,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!4 &1019384713 stripped
@@ -22325,6 +22361,7 @@ MonoBehaviour:
   id: 0
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &1044405984
@@ -22342,6 +22379,7 @@ MonoBehaviour:
   id: 900
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!95 &1044405987
@@ -22924,6 +22962,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1145616495
@@ -23662,6 +23701,7 @@ MonoBehaviour:
   id: 400
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1210461301
@@ -23824,6 +23864,7 @@ MonoBehaviour:
   id: 2
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!64 &1238388797
@@ -24384,6 +24425,7 @@ MonoBehaviour:
   id: 4
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1321657984
@@ -25109,6 +25151,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &1374611282
@@ -25126,6 +25169,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1376956696
@@ -25485,6 +25529,7 @@ MonoBehaviour:
   id: 6
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &1391410934
@@ -25502,6 +25547,7 @@ MonoBehaviour:
   id: 6
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1397329010
@@ -25693,11 +25739,13 @@ MonoBehaviour:
   theCamera: {fileID: 810312039}
   ObjectDistance: 5
   manager: {fileID: 221628463}
+  inventoryManager: {fileID: 918581738}
   doorAnimators:
   - {fileID: 683425570}
   - {fileID: 1957188793}
   - {fileID: 826168455}
   - {fileID: 1044405987}
+  isPanel: 0
 --- !u!136 &1402348669
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25899,6 +25947,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!4 &1409996602 stripped
@@ -26006,6 +26055,7 @@ MonoBehaviour:
   id: 3
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1420347972
@@ -26086,6 +26136,7 @@ MonoBehaviour:
   id: 1000
   isClue: 0
   isZoom: 1
+  panelNum: 0
   savedPosition: {x: -0.1006663, y: 2.82, z: 13.36107}
   savedRotation: {x: 0.982, y: -179.337, z: -0.502, w: 0}
 --- !u!1001 &1426145337
@@ -26641,6 +26692,7 @@ MonoBehaviour:
   id: 6
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &1451811142
@@ -26658,6 +26710,7 @@ MonoBehaviour:
   id: 6
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1465395725
@@ -26820,6 +26873,7 @@ MonoBehaviour:
   id: 300
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1474361751
@@ -32448,6 +32502,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1612552338
@@ -33188,6 +33243,7 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1646104191
@@ -33293,6 +33349,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1665456317
@@ -33427,6 +33484,7 @@ MonoBehaviour:
   id: 20
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!65 &1671333749
@@ -33715,6 +33773,7 @@ MonoBehaviour:
   id: 500
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1695912992
@@ -34105,6 +34164,7 @@ MonoBehaviour:
   id: 3
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1705550981
@@ -34335,6 +34395,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1730575759
@@ -34566,6 +34627,7 @@ MonoBehaviour:
   id: 30
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!65 &1789643759
@@ -34688,6 +34750,7 @@ MonoBehaviour:
   id: 1000
   isClue: 1
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!65 &1797818035
@@ -34937,6 +35000,7 @@ MonoBehaviour:
   id: 1
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1830286624
@@ -39925,6 +39989,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!4 &1859215013 stripped
@@ -39968,6 +40033,7 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1874773021
@@ -40129,6 +40195,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &1876560614
@@ -40230,6 +40297,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!65 &1876560619
@@ -46104,6 +46172,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &2034972822
@@ -46162,6 +46231,7 @@ MonoBehaviour:
   id: 300
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &2054240422
@@ -46284,6 +46354,7 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &2059802677
@@ -46378,6 +46449,7 @@ MonoBehaviour:
   id: 0
   isClue: 1
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &2081376079 stripped
@@ -46400,6 +46472,7 @@ MonoBehaviour:
   id: 50
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!65 &2081376085
@@ -46443,6 +46516,7 @@ MonoBehaviour:
   id: 100
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &2093235576
@@ -46556,6 +46630,7 @@ MonoBehaviour:
   id: 1
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &2107375568 stripped
@@ -46578,6 +46653,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &2107997970
