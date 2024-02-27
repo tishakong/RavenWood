@@ -35,7 +35,10 @@ public class ZoomInOut : MonoBehaviour
                         currentRotation = transform.rotation;
                         SwitchCameraPosition();
                         transform.SetParent(null);
-                        Panel[data.panelNum - 1].SetActive(true);
+                        if (data.panelNum != 0)
+                        {
+                            Panel[data.panelNum - 1].SetActive(true);
+                        }
                         backButton.SetActive(true);
                     }
                 }
@@ -50,16 +53,30 @@ public class ZoomInOut : MonoBehaviour
         if (objData != null && objData.isZoom)
         {
             transform.position = objData.savedPosition;
-            transform.rotation = objData.savedRotation;
+
+            // Quaternion.Slerp 대신 Quaternion.Euler 사용
+            Quaternion newRotation = Quaternion.identity * objData.savedRotation;
+
+
+            // 디버그 출력 추가
+            Debug.Log("Transform Rotation: " + transform.rotation);
+            Debug.Log("Saved Rotation " + objData.savedRotation);
+            Debug.Log("New Rotation: " + newRotation);
+
+            transform.rotation = newRotation;
+
             playerMove.DisableRotation();
         }
     }
+
 
     public void CurrentCameraPosition()
     {
         ObjectData data = scanObject.GetComponent<ObjectData>();
 
-        Panel[data.panelNum - 1].SetActive(false);
+        if (data.panelNum != 0){
+            Panel[data.panelNum - 1].SetActive(false);
+        }
         backButton.SetActive(false);
         playerMove.EnableRotation();
         transform.SetParent(playerMove.transform);

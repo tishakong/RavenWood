@@ -7,6 +7,7 @@ public class ObjectData : MonoBehaviour
     public int id;
     public bool isClue;
     public bool isZoom;
+    public bool isPanel;
     public int panelNum;
 
     public Vector3 savedPosition;
@@ -20,6 +21,11 @@ public class ObjectData : MonoBehaviour
         {
             savedPosition = Vector3.zero;
             savedRotation = Quaternion.identity;
+        }
+
+        if (!isPanel)
+        {
+            panelNum = 0;
         }
     }
 }
