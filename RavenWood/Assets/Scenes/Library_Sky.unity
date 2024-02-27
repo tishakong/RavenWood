@@ -6134,6 +6134,82 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000013677091796, guid: 8bf444dfedaaaa44c957208c58125179, type: 3}
   m_PrefabInstance: {fileID: 243980139}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &255114897
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1525494187}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.6700006
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.08119714
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.0500002
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000001545431
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000001545431
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_Name
+      value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      propertyPath: m_TagString
+      value: ObtainableObject
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1027248595}
+  m_SourcePrefab: {fileID: 100100000, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
 --- !u!1001 &258670942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6230,6 +6306,7 @@ MonoBehaviour:
   id: 100
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -6783,6 +6860,7 @@ MonoBehaviour:
   id: 700
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -6957,6 +7035,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7689,6 +7768,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7979,6 +8059,7 @@ MonoBehaviour:
   id: 400
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -8278,6 +8359,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -8296,6 +8378,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -9063,6 +9146,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -9187,6 +9271,7 @@ MonoBehaviour:
   id: 0
   isClue: 1
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -10548,6 +10633,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -10566,6 +10652,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -20733,6 +20820,7 @@ MonoBehaviour:
   id: 0
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -20751,6 +20839,7 @@ MonoBehaviour:
   id: 900
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -20934,6 +21023,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -21156,6 +21246,7 @@ MonoBehaviour:
   id: 300
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -21389,6 +21480,7 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -21412,6 +21504,7 @@ MonoBehaviour:
   id: 600
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -21684,6 +21777,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 22430e70540be3147b1e09ca5d130be3, type: 3}
   - {fileID: 21300000, guid: 7970942b6b5a31f4aba26f13d8f112ec, type: 3}
   - {fileID: 21300000, guid: 83da72755f8dd8d49ae6268048ca36a9, type: 3}
+  - {fileID: 21300000, guid: 63fbcf5edbc44d54b8f0e84067f7cfc1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!4 &918581739
@@ -21916,6 +22012,7 @@ MonoBehaviour:
   id: 10
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -21960,6 +22057,7 @@ MonoBehaviour:
   id: 8
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -22369,6 +22467,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -22455,6 +22554,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97f674796e33ba4abbd5f3810f36fc9, type: 3}
+--- !u!1 &1027248591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+  m_PrefabInstance: {fileID: 255114897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1027248594 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
+  m_PrefabInstance: {fileID: 255114897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1027248595
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027248591}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5546940888850326318, guid: 6f861a5f3e542c94a80038eab2cb83d1, type: 3}
 --- !u!1001 &1044405974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22671,6 +22802,7 @@ MonoBehaviour:
   id: 0
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -22689,6 +22821,7 @@ MonoBehaviour:
   id: 900
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -23272,6 +23405,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -24011,6 +24145,7 @@ MonoBehaviour:
   id: 400
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -24174,6 +24309,7 @@ MonoBehaviour:
   id: 2
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -24886,6 +25022,7 @@ MonoBehaviour:
   id: 4
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -25617,6 +25754,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -25635,6 +25773,7 @@ MonoBehaviour:
   id: 7
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -25995,6 +26134,7 @@ MonoBehaviour:
   id: 6
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -26013,6 +26153,7 @@ MonoBehaviour:
   id: 6
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -26413,6 +26554,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -26521,6 +26663,7 @@ MonoBehaviour:
   id: 3
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -26602,6 +26745,7 @@ MonoBehaviour:
   id: 1000
   isClue: 0
   isZoom: 1
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: -0.1006663, y: 2.82, z: 13.36107}
   savedRotation: {x: 0.982, y: -179.337, z: -0.502, w: 0}
@@ -27158,6 +27302,7 @@ MonoBehaviour:
   id: 6
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -27176,6 +27321,7 @@ MonoBehaviour:
   id: 6
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -27339,6 +27485,7 @@ MonoBehaviour:
   id: 300
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -32525,6 +32672,7 @@ Transform:
   - {fileID: 277915615}
   - {fileID: 1309086814}
   - {fileID: 1907097044}
+  - {fileID: 1027248594}
   - {fileID: 906605975}
   - {fileID: 54585729}
   m_Father: {fileID: 0}
@@ -33132,6 +33280,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -33873,6 +34022,7 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -33979,6 +34129,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -34114,6 +34265,7 @@ MonoBehaviour:
   id: 20
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -34403,6 +34555,7 @@ MonoBehaviour:
   id: 500
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -34794,6 +34947,7 @@ MonoBehaviour:
   id: 3
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -35025,6 +35179,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -35257,6 +35412,7 @@ MonoBehaviour:
   id: 30
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -35380,6 +35536,7 @@ MonoBehaviour:
   id: 1000
   isClue: 1
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -35630,6 +35787,7 @@ MonoBehaviour:
   id: 1
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -40619,6 +40777,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -40663,6 +40822,7 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -40825,6 +40985,7 @@ MonoBehaviour:
   id: 5
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -40927,6 +41088,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -46807,6 +46969,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -46866,6 +47029,7 @@ MonoBehaviour:
   id: 300
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -46989,6 +47153,7 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -47084,6 +47249,7 @@ MonoBehaviour:
   id: 0
   isClue: 1
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -47107,6 +47273,7 @@ MonoBehaviour:
   id: 50
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -47156,6 +47323,7 @@ MonoBehaviour:
   id: 100
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -47270,6 +47438,7 @@ MonoBehaviour:
   id: 1
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -47293,6 +47462,7 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  isPanel: 0
   panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
