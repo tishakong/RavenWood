@@ -9,8 +9,8 @@ public class InventoryManager : MonoBehaviour
     public bool isInventoryActivate;    // 인벤토리 활성화 여부 확인 변수
 
     public List<Transform> slotTransforms; // 슬롯의 Transform 리스트
-    public List<Image> inventorySlots = new List<Image>(); // 인벤토리 슬롯 리스트
-    public List<Image> itemImageList = new List<Image>(); // 아이템 이미지 리스트
+    public List<GameObject> inventorySlots = new List<GameObject>(); // 인벤토리 슬롯 리스트
+    public List<Sprite> itemImageList = new List<Sprite>(); // 아이템 이미지 리스트
 
     private void Awake()
     {
@@ -31,23 +31,34 @@ public class InventoryManager : MonoBehaviour
 
     public void AddToInventory(GameObject itemObject)
     {
-        Image itemImage = GetItemImage(itemObject.name);
+        Sprite itemImage = GetItemImage(itemObject.name);
 
         // 비어있는 슬롯을 찾아서 오브젝트 추가
         for (int i = 0; i < 10; i++)
         {
             if (inventorySlots[i] == null)
             {
-                Image slotImage = Instantiate(itemImage, slotTransforms[i]);
-                inventorySlots[i] = slotImage;
+                GameObject slotGameObject = new GameObject("SlotImage"); // 슬롯 GameObject 생성
+                slotGameObject.transform.SetParent(slotTransforms[i]); // 슬롯의 부모로 설정
+                slotGameObject.transform.localPosition = Vector3.zero; // 로컬 위치를 원점으로 설정
+
+                // 슬롯에 Image 컴포넌트 추가
+                Image slotImage = slotGameObject.AddComponent<Image>();
+                slotImage.sprite = itemImage; // 슬롯에 이미지 할당
+
+                RectTransform slotRectTransform = slotGameObject.GetComponent<RectTransform>();
+                slotRectTransform.sizeDelta = new Vector2(80, 80); // 너비와 높이를 원하는 크기로 설정
+
+                inventorySlots[i] = slotGameObject; // 인벤토리 슬롯에 GameObject 할당
                 break; // 슬롯 할당 후 반복문 종료
             }
         }
     }
 
-    private Image GetItemImage(string itemName)
+
+    private Sprite GetItemImage(string itemName)
     {
-        foreach (Image image in itemImageList)
+        foreach (Sprite image in itemImageList)
         {
             // 아이템 이름이 이미지 이름을 포함하고 있는지 확인
             if (image.name.ToLower().Contains(itemName.ToLower()))
