@@ -26591,6 +26591,7 @@ MonoBehaviour:
   theCamera: {fileID: 810312039}
   ObjectDistance: 5
   manager: {fileID: 221628463}
+  inventoryManager: {fileID: 1473269662}
   doorAnimators:
   - {fileID: 683425570}
   - {fileID: 1957188793}
@@ -27551,6 +27552,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4936635111863572, guid: 33aa3234397faa044af73f4700427d62, type: 3}
   m_PrefabInstance: {fileID: 1249325241}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1473269661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1473269663}
+  - component: {fileID: 1473269662}
+  m_Layer: 0
+  m_Name: 'InventoryManager '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1473269662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473269661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf72f388e00f9d43bffefcdf9124172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory: {fileID: 318113892}
+  isInventoryActivate: 0
+  inventorySlotPrefab: {fileID: 0}
+  slotTransforms:
+  - {fileID: 1623374524}
+  - {fileID: 522856121}
+  - {fileID: 215242707}
+  - {fileID: 1378146896}
+  - {fileID: 1549035647}
+  - {fileID: 549873022}
+  - {fileID: 2003118449}
+  - {fileID: 658843517}
+  - {fileID: 1959856125}
+  - {fileID: 1199709896}
+  inventorySlots: []
+--- !u!4 &1473269663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473269661}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1474361751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47468,6 +47528,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1402348667}
+  - {fileID: 1473269663}
   - {fileID: 221628464}
   - {fileID: 913593530}
   - {fileID: 1163950237}
