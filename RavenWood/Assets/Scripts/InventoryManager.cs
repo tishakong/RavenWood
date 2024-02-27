@@ -46,6 +46,9 @@ public class InventoryManager : MonoBehaviour
                 Image slotImage = slotGameObject.AddComponent<Image>();
                 slotImage.sprite = itemImage; // 슬롯에 이미지 할당
 
+                RectTransform slotRectTransform = slotGameObject.GetComponent<RectTransform>();
+                slotRectTransform.sizeDelta = new Vector2(80, 80); // 너비와 높이를 원하는 크기로 설정
+
                 inventorySlots[i] = slotGameObject; // 인벤토리 슬롯에 GameObject 할당
                 break; // 슬롯 할당 후 반복문 종료
             }
