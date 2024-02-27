@@ -7,11 +7,10 @@ public class ObjectData : MonoBehaviour
     public int id;
     public bool isClue;
     public bool isZoom;
-    
+    public int panelNum;
+
     public Vector3 savedPosition;
     public Quaternion savedRotation;
-
-    public int panelNum;
 
     // Unity callback method
     void OnValidate()

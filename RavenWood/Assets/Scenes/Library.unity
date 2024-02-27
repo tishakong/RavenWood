@@ -6139,9 +6139,9 @@ MonoBehaviour:
   id: 100
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &260844506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6687,9 +6687,9 @@ MonoBehaviour:
   id: 700
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &332345476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7825,9 +7825,9 @@ MonoBehaviour:
   id: 400
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &444533473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8843,6 +8843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: C)Plant Book
       objectReference: {fileID: 0}
+    - target: {fileID: 122276, guid: 131a112cf67c4e98af44b350b210ef43, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
     - target: {fileID: 422276, guid: 131a112cf67c4e98af44b350b210ef43, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -8949,12 +8953,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a1efbcf602c26488a2ccd8336189f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 2000
   isClue: 1
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &640186126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20347,9 +20351,9 @@ MonoBehaviour:
   id: 0
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!114 &826168454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20365,9 +20369,9 @@ MonoBehaviour:
   id: 900
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!95 &826168455
 Animator:
   serializedVersion: 5
@@ -20741,9 +20745,9 @@ MonoBehaviour:
   id: 300
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1 &869944052
 GameObject:
   m_ObjectHideFlags: 0
@@ -20974,9 +20978,9 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1 &884279821 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 142046, guid: 7898d54b47c340b59a0491e6a61aded1, type: 3}
@@ -20997,9 +21001,9 @@ MonoBehaviour:
   id: 600
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &906605974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21421,9 +21425,9 @@ MonoBehaviour:
   id: 10
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!65 &954658089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22055,9 +22059,9 @@ MonoBehaviour:
   id: 0
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!114 &1044405984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22073,9 +22077,9 @@ MonoBehaviour:
   id: 900
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!95 &1044405987
 Animator:
   serializedVersion: 5
@@ -22887,7 +22891,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -23365,9 +23369,9 @@ MonoBehaviour:
   id: 400
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &1210461301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25500,9 +25504,9 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!4 &1409996602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4177046354630628, guid: 9d012b73caba62246906034d78994c42, type: 3}
@@ -25664,9 +25668,9 @@ MonoBehaviour:
   id: 1000
   isClue: 0
   isZoom: 1
+  panelNum: 1
   savedPosition: {x: -0.1006663, y: 2.82, z: 13.36107}
   savedRotation: {x: 0.982, y: -179.337, z: -0.502, w: 0}
-  panelNum: 1
 --- !u!1001 &1426145337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25873,9 +25877,9 @@ MonoBehaviour:
   id: 1100
   isClue: 0
   isZoom: 1
+  panelNum: 2
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 2
 --- !u!1 &1431635560
 GameObject:
   m_ObjectHideFlags: 0
@@ -32959,9 +32963,9 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1 &1646104191
 GameObject:
   m_ObjectHideFlags: 0
@@ -33065,9 +33069,9 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1 &1665456317
 GameObject:
   m_ObjectHideFlags: 0
@@ -33200,9 +33204,9 @@ MonoBehaviour:
   id: 20
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!65 &1671333749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33489,9 +33493,9 @@ MonoBehaviour:
   id: 500
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1 &1695912992
 GameObject:
   m_ObjectHideFlags: 0
@@ -34293,9 +34297,9 @@ MonoBehaviour:
   id: 30
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!65 &1789643759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34416,9 +34420,9 @@ MonoBehaviour:
   id: 1000
   isClue: 1
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!65 &1797818035
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39636,9 +39640,9 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!4 &1859215013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7ea1b4827d80a8c46807bd4db372acce, type: 3}
@@ -39680,9 +39684,9 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &1874773021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39919,9 +39923,9 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!65 &1876560619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45580,7 +45584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2020658920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45926,9 +45930,9 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1 &2034972822
 GameObject:
   m_ObjectHideFlags: 0
@@ -45985,9 +45989,9 @@ MonoBehaviour:
   id: 300
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &2054240422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46108,9 +46112,9 @@ MonoBehaviour:
   id: 800
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &2059802677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46122,6 +46126,10 @@ PrefabInstance:
     - target: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
       propertyPath: m_Name
       value: C)Posion Book
+      objectReference: {fileID: 0}
+    - target: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
+      propertyPath: m_TagString
+      value: Object
       objectReference: {fileID: 0}
     - target: {fileID: 473732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
       propertyPath: m_LocalScale.x
@@ -46182,6 +46190,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2059802681}
+    - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2059802684}
   m_SourcePrefab: {fileID: 100100000, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
 --- !u!4 &2059802678 stripped
 Transform:
@@ -46200,12 +46211,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a1efbcf602c26488a2ccd8336189f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 3000
   isClue: 1
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
+--- !u!65 &2059802684
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046652601}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.48480415, y: 0.076673694, z: 0.30349922}
+  m_Center: {x: -0.0000009536743, y: 0.03833681, z: 0}
 --- !u!1 &2081376079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 173006, guid: d0e39f206f1e4ca082d2fd38f5475d00, type: 3}
@@ -46226,9 +46258,9 @@ MonoBehaviour:
   id: 50
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!65 &2081376085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46270,9 +46302,9 @@ MonoBehaviour:
   id: 100
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &2093235576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46366,9 +46398,9 @@ MonoBehaviour:
   id: 200
   isClue: 0
   isZoom: 0
+  panelNum: 0
   savedPosition: {x: 0, y: 0, z: 0}
   savedRotation: {x: 0, y: 0, z: 0, w: 1}
-  panelNum: 0
 --- !u!1001 &2107997970
 PrefabInstance:
   m_ObjectHideFlags: 0
