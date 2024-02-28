@@ -99,7 +99,7 @@ public class PlayerMove : MonoBehaviour
                         {
                             if (inventoryManager.isInventoryActivate)
                             {
-                                inventoryManager.AddToInventory(scanObject);
+                                inventoryManager.AddToInventory(scanObject.name);
                                 Destroy(scanObject);
                             }
                             else

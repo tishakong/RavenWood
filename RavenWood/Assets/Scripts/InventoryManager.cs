@@ -12,6 +12,8 @@ public class InventoryManager : MonoBehaviour
     public List<GameObject> inventorySlots = new List<GameObject>(); // 인벤토리 슬롯 리스트
     public List<Sprite> itemImageList = new List<Sprite>(); // 아이템 이미지 리스트
 
+    public MonoBehaviour scriptToAdd; // 아이템에 추가할 스크립트 인스턴스
+
     private void Awake()
     {
         Inventory.SetActive(false);
@@ -27,27 +29,28 @@ public class InventoryManager : MonoBehaviour
         {
             inventorySlots.Add(null); // 요소를 null로 초기화
         }
+        AddToInventory("match");
     }
 
-    public void AddToInventory(GameObject itemObject)
+    public void AddToInventory(string itemObjectName)
     {
-        Sprite itemImage = GetItemImage(itemObject.name);
+        Sprite itemImage = GetItemImage(itemObjectName);
 
-        // 비어있는 슬롯을 찾아서 오브젝트 추가
         for (int i = 0; i < 10; i++)
         {
             if (inventorySlots[i] == null)
             {
-                GameObject slotGameObject = new GameObject("SlotImage"); // 슬롯 GameObject 생성
-                slotGameObject.transform.SetParent(slotTransforms[i]); // 슬롯의 부모로 설정
-                slotGameObject.transform.localPosition = Vector3.zero; // 로컬 위치를 원점으로 설정
+                // 비어있는 슬롯에 GameObject 생성
+                GameObject slotGameObject = new GameObject(itemObjectName); 
+                slotGameObject.transform.SetParent(slotTransforms[i]);
+                slotGameObject.transform.localPosition = Vector3.zero;
 
-                // 슬롯에 Image 컴포넌트 추가
+                // 슬롯에 이미지 할당
                 Image slotImage = slotGameObject.AddComponent<Image>();
-                slotImage.sprite = itemImage; // 슬롯에 이미지 할당
+                slotImage.sprite = itemImage; 
 
                 RectTransform slotRectTransform = slotGameObject.GetComponent<RectTransform>();
-                slotRectTransform.sizeDelta = new Vector2(80, 80); // 너비와 높이를 원하는 크기로 설정
+                slotRectTransform.sizeDelta = new Vector2(80, 80); // 너비와 높이 설정
 
                 inventorySlots[i] = slotGameObject; // 인벤토리 슬롯에 GameObject 할당
                 break; // 슬롯 할당 후 반복문 종료
