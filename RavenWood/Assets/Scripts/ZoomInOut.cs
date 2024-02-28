@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZoomInOut : MonoBehaviour
 {
     GameObject scanObject;
+    GameObject zoomObject;
     public Quaternion currentRotation;
     public float ObjectDistance;
     public GameObject[] Panel;
@@ -32,6 +33,10 @@ public class ZoomInOut : MonoBehaviour
                 {
                     if (scanObject.CompareTag("Zoom"))
                     {
+<<<<<<< Updated upstream
+=======
+                        zoomObject = scanObject;
+>>>>>>> Stashed changes
                         currentRotation = transform.rotation;
                         SwitchCameraPosition();
                         transform.SetParent(null);
@@ -66,7 +71,12 @@ public class ZoomInOut : MonoBehaviour
 
     public void CurrentCameraPosition()
     {
+<<<<<<< Updated upstream
         ObjectData data = scanObject.GetComponent<ObjectData>();
+=======
+        Debug.Log(zoomObject);
+        ObjectData data = zoomObject.GetComponent<ObjectData>();
+>>>>>>> Stashed changes
 
         if (data.isPanel){
             Panel[data.panelNum - 1].SetActive(false);
@@ -76,6 +86,10 @@ public class ZoomInOut : MonoBehaviour
         transform.SetParent(playerMove.transform);
         transform.rotation = currentRotation;
         transform.localPosition = new Vector3(0f, 0.6f, 0f);
+<<<<<<< Updated upstream
         scanObject.SetActive(true);
+=======
+        zoomObject.SetActive(true);
+>>>>>>> Stashed changes
     }
 }
