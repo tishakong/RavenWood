@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class ItemManager : MonoBehaviour
 {
     public Color highlightColor; // 선택된 이미지 색상
-    public bool isSelected;
+    public PlayerMove playerMove;
 
     void Start()
     {
         highlightColor = new Color32(255, 156, 0, 255);
         Button button = GetComponent<Button>();
         button.onClick.AddListener(Selected);
+        playerMove = GetComponent<PlayerMove>();
     }
 
 
@@ -23,16 +24,6 @@ public class ItemManager : MonoBehaviour
 
         Image parentImage = parentTransform.GetComponent<Image>();
         parentImage.color = highlightColor;
-        isSelected = true;
+        playerMove.selectedItem= this.gameObject;
     }
-
-    private void Update()
-    {
-        if (isSelected)
-        {
-            //무언가 오브젝트를 클릭했는지, 다른 UI를 클릭했는지, 상호작용이 가능한 오브젝트를 클릭했는지 확인하는 코드 작성 필요
-        }
-    }
-
-
 }
