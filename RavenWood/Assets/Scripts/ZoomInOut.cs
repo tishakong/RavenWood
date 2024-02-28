@@ -46,6 +46,7 @@ public class ZoomInOut : MonoBehaviour
                         }
                         backButton.SetActive(true);
                         scanObject.SetActive(false);
+                        ZoomIn = true;
                     }
                 }
             }
@@ -84,6 +85,6 @@ public class ZoomInOut : MonoBehaviour
         transform.rotation = currentRotation;
         transform.localPosition = new Vector3(0f, 0.6f, 0f);
         zoomObject.SetActive(true);
-
+        ZoomIn = false;
     }
 }

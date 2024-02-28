@@ -77,7 +77,7 @@ public class PlayerMove : MonoBehaviour
                     else
                     {
                         // 문 열기
-                        if (scanObject.CompareTag("Door"))
+                        if (scanObject.CompareTag("Door") && !zoom.ZoomIn)
                         {
 
                             Animator doorAnimator = scanObject.GetComponentInParent<Animator>();
