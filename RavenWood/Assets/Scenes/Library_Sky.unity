@@ -15722,6 +15722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRotation: {x: 0, y: 0, z: 0, w: 0}
   ObjectDistance: 5
+  ZoomIn: 0
   Panel: []
   backButton: {fileID: 0}
   playerMove: {fileID: 1402348668}
@@ -21782,6 +21783,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  itemManager: {fileID: 8447855417450958198, guid: 6f9c1483d11dbe342b9d74ab60b6f58b, type: 3}
 --- !u!4 &918581739
 Transform:
   m_ObjectHideFlags: 0
@@ -26347,6 +26349,7 @@ MonoBehaviour:
   ObjectDistance: 5
   manager: {fileID: 221628463}
   inventoryManager: {fileID: 918581738}
+  zoom: {fileID: 810312037}
   doorAnimators:
   - {fileID: 683425570}
   - {fileID: 1957188793}

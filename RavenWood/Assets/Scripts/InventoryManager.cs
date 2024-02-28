@@ -12,7 +12,7 @@ public class InventoryManager : MonoBehaviour
     public List<GameObject> inventorySlots = new List<GameObject>(); // 인벤토리 슬롯 리스트
     public List<Sprite> itemImageList = new List<Sprite>(); // 아이템 이미지 리스트
 
-    public MonoBehaviour scriptToAdd; // 아이템에 추가할 스크립트 인스턴스
+    public ItemManager itemManager; // 아이템에 추가할 스크립트
 
     private void Awake()
     {
@@ -45,14 +45,20 @@ public class InventoryManager : MonoBehaviour
                 slotGameObject.transform.SetParent(slotTransforms[i]);
                 slotGameObject.transform.localPosition = Vector3.zero;
 
-                // 슬롯에 이미지 할당
+                // 오브젝트에 이미지 할당, 버튼 할당
                 Image slotImage = slotGameObject.AddComponent<Image>();
-                slotImage.sprite = itemImage; 
+                slotImage.sprite = itemImage;
+                slotGameObject.AddComponent<Button>();
 
+                // 이미지 너비와 높이 설정
                 RectTransform slotRectTransform = slotGameObject.GetComponent<RectTransform>();
-                slotRectTransform.sizeDelta = new Vector2(80, 80); // 너비와 높이 설정
+                slotRectTransform.sizeDelta = new Vector2(80, 80);
+
+                //itemManager 스크립트 부여
+                slotGameObject.AddComponent(itemManager.GetType());
 
                 inventorySlots[i] = slotGameObject; // 인벤토리 슬롯에 GameObject 할당
+
                 break; // 슬롯 할당 후 반복문 종료
             }
         }
