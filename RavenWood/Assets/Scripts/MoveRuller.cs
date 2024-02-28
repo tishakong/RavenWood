@@ -3,24 +3,17 @@ using UnityEngine;
 
 public class MoveRuller : MonoBehaviour
 {
-    PadLockPassword _lockPassword;
+    public PadLockPassword _lockPassword;
 
-    [HideInInspector]
+
     public List<GameObject> _rullers = new List<GameObject>();
     private int _selectedRullerIndex = 0;
-    [HideInInspector]
+
     public int[] _numberArray = { 0, 0, 0, 0 };
     private bool _isActveEmission = false;
 
     void Awake()
     {
-        _lockPassword = FindObjectOfType<PadLockPassword>();
-
-        _rullers.Add(GameObject.Find("Ruller1"));
-        _rullers.Add(GameObject.Find("Ruller2"));
-        _rullers.Add(GameObject.Find("Ruller3"));
-        _rullers.Add(GameObject.Find("Ruller4"));
-
         foreach (GameObject r in _rullers)
         {
             r.transform.Rotate(-144, 0, 0, Space.Self);

@@ -1,11 +1,9 @@
-﻿// Script by Marcelli Michele
-
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 public class PadLockPassword : MonoBehaviour
 {
-    MoveRuller _moveRull;
+    public MoveRuller _moveRull;
     Animator anim;
 
     public bool LockOpen = false;
@@ -15,7 +13,6 @@ public class PadLockPassword : MonoBehaviour
 
     private void Awake()
     {
-        _moveRull = FindObjectOfType<MoveRuller>();
         anim = GetComponent<Animator>();
     }
 
@@ -63,10 +60,6 @@ public class PadLockPassword : MonoBehaviour
         if (drawerCollider != null)
         {
             drawerCollider.enabled = true;
-        }
-        else
-        {
-            Debug.Log("비어있음");
         }
     }
 }
