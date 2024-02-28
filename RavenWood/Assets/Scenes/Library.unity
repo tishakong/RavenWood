@@ -27474,6 +27474,7 @@ MonoBehaviour:
   selectedItem: {fileID: 0}
   manager: {fileID: 221628463}
   inventoryManager: {fileID: 870404368}
+  item: {fileID: 0}
   zoom: {fileID: 810312037}
   doorAnimators:
   - {fileID: 683425570}
@@ -28733,6 +28734,11 @@ PrefabInstance:
 --- !u!4 &1513097052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 5e4f0092c47fe7447a4fa6552f6e24b9, type: 3}
+  m_PrefabInstance: {fileID: 1513097051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1513097053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 5e4f0092c47fe7447a4fa6552f6e24b9, type: 3}
   m_PrefabInstance: {fileID: 1513097051}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1519990005
@@ -48532,6 +48538,7 @@ GameObject:
   - component: {fileID: 117987912140325188}
   - component: {fileID: 2610420799002633526}
   - component: {fileID: 7330118929204427151}
+  - component: {fileID: 7330118929204427152}
   m_Layer: 0
   m_Name: Pot
   m_TagString: Pot
@@ -48983,6 +48990,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.20891742, y: 0.073478214, z: 0.20376159}
   m_Center: {x: 0, y: 0.034371603, z: 0}
+--- !u!114 &7330118929204427152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512431471025802242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b80033bb004134cb10db8c6db598fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 0
+  ingredients:
+  - {fileID: 1513097053}
+  - {fileID: 5881761239394523723}
+  - {fileID: 102555955}
+  - {fileID: 1201312950}
+  - {fileID: 4037458785093727685}
+  - {fileID: 898939185}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
