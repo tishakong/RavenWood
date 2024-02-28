@@ -7,6 +7,7 @@ public class ZoomInOut : MonoBehaviour
     GameObject scanObject;
     public Quaternion currentRotation;
     public float ObjectDistance;
+    public bool ZoomIn = false;
     public GameObject[] Panel;
     public GameObject backButton;
 
@@ -32,6 +33,7 @@ public class ZoomInOut : MonoBehaviour
                 {
                     if (scanObject.CompareTag("Zoom"))
                     {
+                        ZoomIn = true;
                         currentRotation = transform.rotation;
                         SwitchCameraPosition();
                         transform.SetParent(null);
@@ -66,7 +68,9 @@ public class ZoomInOut : MonoBehaviour
 
     public void CurrentCameraPosition()
     {
+        Debug.Log(scanObject);
         ObjectData data = scanObject.GetComponent<ObjectData>();
+        Debug.Log(scanObject);
 
         if (data.isPanel){
             Panel[data.panelNum - 1].SetActive(false);
@@ -77,5 +81,6 @@ public class ZoomInOut : MonoBehaviour
         transform.rotation = currentRotation;
         transform.localPosition = new Vector3(0f, 0.6f, 0f);
         scanObject.SetActive(true);
+        ZoomIn = false;
     }
 }
