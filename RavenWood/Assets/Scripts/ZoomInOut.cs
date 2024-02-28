@@ -8,6 +8,7 @@ public class ZoomInOut : MonoBehaviour
     GameObject zoomObject;
     public Quaternion currentRotation;
     public float ObjectDistance;
+    public bool ZoomIn = false;
     public GameObject[] Panel;
     public GameObject backButton;
 
@@ -26,17 +27,16 @@ public class ZoomInOut : MonoBehaviour
 
                 ObjectData data = scanObject.GetComponent<ObjectData>();
 
-                // ø¿∫Í¡ß∆ÆøÕ «√∑π¿ÃæÓ ªÁ¿Ã¿« ∞≈∏Æ
+                // Ïò§Î∏åÏ†ùÌä∏ÏôÄ ÌîåÎ†àÏù¥Ïñ¥ ÏÇ¨Ïù¥Ïùò Í±∞Î¶¨
                 float distance = Vector3.Distance(transform.position, scanObject.transform.position);
 
                 if (distance < ObjectDistance)
                 {
                     if (scanObject.CompareTag("Zoom"))
                     {
-<<<<<<< Updated upstream
-=======
+
                         zoomObject = scanObject;
->>>>>>> Stashed changes
+
                         currentRotation = transform.rotation;
                         SwitchCameraPosition();
                         transform.SetParent(null);
@@ -71,12 +71,9 @@ public class ZoomInOut : MonoBehaviour
 
     public void CurrentCameraPosition()
     {
-<<<<<<< Updated upstream
-        ObjectData data = scanObject.GetComponent<ObjectData>();
-=======
+
         Debug.Log(zoomObject);
         ObjectData data = zoomObject.GetComponent<ObjectData>();
->>>>>>> Stashed changes
 
         if (data.isPanel){
             Panel[data.panelNum - 1].SetActive(false);
@@ -86,10 +83,7 @@ public class ZoomInOut : MonoBehaviour
         transform.SetParent(playerMove.transform);
         transform.rotation = currentRotation;
         transform.localPosition = new Vector3(0f, 0.6f, 0f);
-<<<<<<< Updated upstream
-        scanObject.SetActive(true);
-=======
         zoomObject.SetActive(true);
->>>>>>> Stashed changes
+
     }
 }

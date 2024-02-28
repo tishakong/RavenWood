@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     GameObject scanObject;
     public GameManager manager;
     public InventoryManager inventoryManager;
+    public ZoomInOut zoom;
 
     public Animator[] doorAnimators;  // 여러 개의 문을 저장할 배열
     bool[] isOpenArray;               // 각 문의 상태를 저장하는 배열
@@ -52,6 +53,11 @@ public class PlayerMove : MonoBehaviour
         // Scan Object & Action
         if (Input.GetMouseButtonDown(0))
         {
+            if (zoom.ZoomIn)
+            {
+                return;
+            }
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
