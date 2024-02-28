@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZoomInOut : MonoBehaviour
 {
     GameObject scanObject;
+    GameObject zoomObject;
     public Quaternion currentRotation;
     public float ObjectDistance;
     public bool ZoomIn = false;
@@ -26,14 +27,16 @@ public class ZoomInOut : MonoBehaviour
 
                 ObjectData data = scanObject.GetComponent<ObjectData>();
 
-                // ¿ÀºêÁ§Æ®¿Í ÇÃ·¹ÀÌ¾î »çÀÌÀÇ °Å¸®
+                // ì˜¤ë¸Œì íŠ¸ì™€ í”Œë ˆì´ì–´ ì‚¬ì´ì˜ ê±°ë¦¬
                 float distance = Vector3.Distance(transform.position, scanObject.transform.position);
 
                 if (distance < ObjectDistance)
                 {
                     if (scanObject.CompareTag("Zoom"))
                     {
-                        ZoomIn = true;
+
+                        zoomObject = scanObject;
+
                         currentRotation = transform.rotation;
                         SwitchCameraPosition();
                         transform.SetParent(null);
@@ -68,9 +71,9 @@ public class ZoomInOut : MonoBehaviour
 
     public void CurrentCameraPosition()
     {
-        Debug.Log(scanObject);
-        ObjectData data = scanObject.GetComponent<ObjectData>();
-        Debug.Log(scanObject);
+
+        Debug.Log(zoomObject);
+        ObjectData data = zoomObject.GetComponent<ObjectData>();
 
         if (data.isPanel){
             Panel[data.panelNum - 1].SetActive(false);
@@ -80,7 +83,7 @@ public class ZoomInOut : MonoBehaviour
         transform.SetParent(playerMove.transform);
         transform.rotation = currentRotation;
         transform.localPosition = new Vector3(0f, 0.6f, 0f);
-        scanObject.SetActive(true);
-        ZoomIn = false;
+        zoomObject.SetActive(true);
+
     }
 }
