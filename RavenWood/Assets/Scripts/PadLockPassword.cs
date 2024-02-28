@@ -8,6 +8,9 @@ public class PadLockPassword : MonoBehaviour
     MoveRuller _moveRull;
     Animator anim;
 
+    public bool LockOpen = false;
+    public GameObject drawer;
+
     public int[] _numberPassword = { 0, 0, 0, 0 };
 
     private void Awake()
@@ -24,6 +27,9 @@ public class PadLockPassword : MonoBehaviour
             Debug.Log("Password correct");
 
             anim.SetBool("isOpen", true);
+            LockOpen = true;
+            Invoke("DisableLock", 2f);
+            EnableDrawer();
 
             // Disable blinking effect after correct password
             DisableBlinkingEffect();
@@ -42,6 +48,25 @@ public class PadLockPassword : MonoBehaviour
                 emissionColor._isSelect = false;
                 emissionColor.DisableBlinkingMaterial();
             }
+        }
+    }
+
+    void DisableLock()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void EnableDrawer()
+    {
+        Collider drawerCollider = drawer.GetComponent<Collider>();
+
+        if (drawerCollider != null)
+        {
+            drawerCollider.enabled = true;
+        }
+        else
+        {
+            Debug.Log("비어있음");
         }
     }
 }

@@ -23649,8 +23649,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0763446, y: 0.54165924, z: 0.56706977}
-  m_Center: {x: -0.00000023841858, y: 0.27082956, z: -0.006563352}
+  m_Size: {x: 1.0763446, y: 0.22741257, z: 0.56706977}
+  m_Center: {x: -0.0000002384186, y: 0.42795306, z: -0.0065633543}
 --- !u!114 &1044405983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27444,6 +27444,7 @@ MonoBehaviour:
   - {fileID: 1199709896}
   inventorySlots: []
   itemImageList: []
+  scriptToAdd: {fileID: 0}
 --- !u!4 &1473269663
 Transform:
   m_ObjectHideFlags: 0
@@ -27545,6 +27546,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 420893898}
     m_Modifications:
+    - target: {fileID: 3505437643527019172, guid: 7dadeaf009a404940b8969ae6ea90dee, type: 3}
+      propertyPath: drawer
+      value: 
+      objectReference: {fileID: 1044405977}
     - target: {fileID: 5744185026425011241, guid: 7dadeaf009a404940b8969ae6ea90dee, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
