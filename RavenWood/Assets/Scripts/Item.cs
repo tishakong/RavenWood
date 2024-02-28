@@ -11,11 +11,9 @@ public class Item : MonoBehaviour
 
     public void UseItem(GameObject selecteditem, GameObject scanObject)
     {
-        print("UseItem ½ÇÇàµÊ");
         item= selecteditem;
         target = scanObject;
 
-        print(item.name);
         switch (item.name)
         {
             case "match":
@@ -30,7 +28,10 @@ public class Item : MonoBehaviour
     {
         if(target.name.Contains("candle"))
         {
-            print(target.name);
+            foreach (Transform child in target.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
         }
     }
 }
