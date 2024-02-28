@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -69,54 +70,41 @@ public class PlayerMove : MonoBehaviour
 
                     if (distance < ObjectDistance)
                     {
-                        if (manager.isAction)
+                        if (manager.isAction) //상태창이 떠있다면 scanObject 작동 X
                         {
                             scanObject = null;
                         }
                         else
                         {
-                            // 문 열기
-                            if (scanObject.CompareTag("Door") && !zoom.ZoomIn)
+                            if (selectedItem == null) //인벤토리 아이템 선택이 안되어 있을 경우
                             {
-
-                                Animator doorAnimator = scanObject.GetComponentInParent<Animator>();
-
-                                if (doorAnimator != null)
+                                // 문 열기
+                                if (scanObject.CompareTag("Door") && !zoom.ZoomIn)
                                 {
-                                    OpenOrCloseDoor(doorAnimator);
+                                    DoorEvent();
                                 }
-
+                                // 오브젝트 상태창 띄우기
+                                else if (scanObject.CompareTag("Object"))
+                                {
+                                    manager.Action(scanObject);
+                                }
+                                // 획득 가능 오브젝트
+                                else if (scanObject.CompareTag("ObtainableObject"))
+                                {
+                                    ObtainableObjectEvent();
+                                }
                             }
-                            // 오브젝트 상태창 띄우기
-                            else if (scanObject.CompareTag("Object"))
+                            else //인벤토리 아이템이 선택되어 있을 경우
                             {
-                                manager.Action(scanObject);
-
-                            }
-                            // 획득 가능 오브젝트
-                            else if (scanObject.CompareTag("ObtainableObject"))
-                            {
-                                if (inventoryManager.isInventoryActivate)
+                                if (scanObject.CompareTag("Temp")) //인벤토리 아이템과 상호작용이 가능한 오브젝트를 클릭하였으면 해당하는 상호작용 실행하는 코드 작성
                                 {
-                                    inventoryManager.AddToInventory(scanObject.name);
-                                    Destroy(scanObject);
-                                }
-                                else
-                                {
-                                    if (scanObject.name == "Inventory")
-                                    {
-                                        Destroy(scanObject);
-                                        inventoryManager.ShowInventory();
-                                    }
-                                    else
-                                    {
-                                        print("손이 부족하다");
-                                    }
-                                }
 
+                                }
+                                Image itemImage = selectedItem.transform.parent.GetComponent<Image>();
+                                itemImage.color = Color.white;
+                                selectedItem = null;
                             }
                         }
-
                     }
                 }
             }
@@ -176,23 +164,47 @@ public class PlayerMove : MonoBehaviour
         rotationEnabled = true;
     }
 
-
-    // 문 여는 함수
-    void OpenOrCloseDoor(Animator doorAnimator)
+    void DoorEvent()
     {
-        int doorIndex = System.Array.IndexOf(doorAnimators, doorAnimator);
+        Animator doorAnimator = scanObject.GetComponentInParent<Animator>();
 
-        if (doorIndex != -1) // 해당하는 문을 찾았을 경우
+        if (doorAnimator != null)
         {
-            if (isOpenArray[doorIndex])
+            int doorIndex = System.Array.IndexOf(doorAnimators, doorAnimator);
+
+            if (doorIndex != -1) // 해당하는 문을 찾았을 경우
             {
-                doorAnimator.SetBool("isOpen", false);
-                isOpenArray[doorIndex] = false;
+                if (isOpenArray[doorIndex])
+                {
+                    doorAnimator.SetBool("isOpen", false);
+                    isOpenArray[doorIndex] = false;
+                }
+                else
+                {
+                    doorAnimator.SetBool("isOpen", true);
+                    isOpenArray[doorIndex] = true;
+                }
+            }
+        }
+    }
+
+    void ObtainableObjectEvent()
+    {
+        if (inventoryManager.isInventoryActivate)
+        {
+            inventoryManager.AddToInventory(scanObject.name);
+            Destroy(scanObject);
+        }
+        else
+        {
+            if (scanObject.name == "Inventory")
+            {
+                Destroy(scanObject);
+                inventoryManager.ShowInventory();
             }
             else
             {
-                doorAnimator.SetBool("isOpen", true);
-                isOpenArray[doorIndex] = true;
+                print("손이 부족하다");
             }
         }
     }
@@ -206,5 +218,4 @@ public class PlayerMove : MonoBehaviour
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;
     }
-
 }
