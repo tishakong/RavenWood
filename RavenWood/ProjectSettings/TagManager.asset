@@ -8,6 +8,7 @@ TagManager:
   - Object
   - Zoom
   - ObtainableObject
+  - InteractiveObject
   layers:
   - Default
   - TransparentFX

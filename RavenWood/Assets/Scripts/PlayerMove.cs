@@ -23,6 +23,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject selectedItem;
     public GameManager manager;
     public InventoryManager inventoryManager;
+    public Item item;
     public ZoomInOut zoom;
 
     public Animator[] doorAnimators;  // 여러 개의 문을 저장할 배열
@@ -96,9 +97,9 @@ public class PlayerMove : MonoBehaviour
                             }
                             else //인벤토리 아이템이 선택되어 있을 경우
                             {
-                                if (scanObject.CompareTag("Temp")) //인벤토리 아이템과 상호작용이 가능한 오브젝트를 클릭하였으면 해당하는 상호작용 실행하는 코드 작성
+                                if (scanObject.CompareTag("InteractiveObject")) //인벤토리 아이템과 상호작용이 가능한 오브젝트를 클릭하였으면 해당하는 상호작용 실행하는 코드 작성
                                 {
-
+                                    item.UseItem(selectedItem, scanObject);
                                 }
                                 Image itemImage = selectedItem.transform.parent.GetComponent<Image>();
                                 itemImage.color = Color.white;
