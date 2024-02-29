@@ -26,7 +26,7 @@ public class Item : MonoBehaviour
 
     void match()
     {
-        if(target.name.Contains("candle"))
+        if(target.name.Contains("candle") || target.name.Contains("Gas_Burner"))
         {
             foreach (Transform child in target.transform)
             {

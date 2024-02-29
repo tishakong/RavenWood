@@ -85,7 +85,7 @@ public class PlayerMove : MonoBehaviour
                                     DoorEvent();
                                 }
                                 // 오브젝트 상태창 띄우기
-                                else if (scanObject.CompareTag("Object"))
+                                else if (scanObject.CompareTag("Object") || scanObject.CompareTag("InteractiveObject"))
                                 {
                                     manager.Action(scanObject);
                                 }
