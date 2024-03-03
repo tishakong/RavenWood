@@ -14,7 +14,7 @@ public class MakePotion : MonoBehaviour
     public bool isBurning = false;
     private bool isWine = false;
     private bool isPoison = false;
-    private bool isPerfect = false;
+    public bool isPerfect = false;
 
     List<string> list = new List<string>(); // 리스트 초기화
 
