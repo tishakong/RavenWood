@@ -98,7 +98,10 @@ public class PlayerMove : MonoBehaviour
                                 // 오브젝트 상태창 띄우기
                                 else if (scanObject.CompareTag("Object") || scanObject.CompareTag("InteractiveObject"))
                                 {
-                                    manager.Action(scanObject);
+                                    if (!zoom.ZoomIn)
+                                    {
+                                        manager.Action(scanObject);
+                                    }
                                 }
                                 // 획득 가능 오브젝트
                                 else if (scanObject.CompareTag("ObtainableObject"))
@@ -226,7 +229,7 @@ public class PlayerMove : MonoBehaviour
             }
             else
             {
-                print("손이 부족하다");
+                manager.OutOfHands();
             }
         }
     }

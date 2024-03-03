@@ -14,6 +14,7 @@ public class ZoomInOut : MonoBehaviour
     public GameObject mixButton;
 
     public PlayerMove playerMove;
+    public GameManager gameManager;
 
     Collider PotionsCollider;
 
@@ -50,6 +51,7 @@ public class ZoomInOut : MonoBehaviour
                         scanObject.SetActive(false);
                         ZoomIn = true;
 
+                        gameManager.DelayedHidePanel();
 
                         if (zoomObject.name == "Pot")
                         {

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MakePotion : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public float rotateSpeed;
     public Renderer resultRenderer;
 
@@ -61,12 +63,12 @@ public class MakePotion : MonoBehaviour
             }
             else
             {
-                print("재료를 넣고 섞어야할 것 같다.");
+                gameManager.NeedIngredient();
             }
         }
         else
         {
-            print("불을 먼저 붙여야 할 것 같다.");
+            gameManager.NeedFire();
         }
     }
 
