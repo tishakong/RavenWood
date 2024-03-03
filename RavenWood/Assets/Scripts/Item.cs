@@ -21,16 +21,13 @@ public class Item : MonoBehaviour
     {
         item= selecteditem;
         target = scanObject;
-        print(item.name);
-        print(target.name);
 
         switch (item.name)
         {
             case "match":
                 match();
                 break;
-            case "RoomKey":
-                print(item.name);
+            case string itemName when itemName.Contains("Key"):
                 OpenDoorWithKey();
                 break;
             case "Wine1":
@@ -105,13 +102,11 @@ public class Item : MonoBehaviour
         {
             string itemWithoutKey = item.name.Replace("Key", "");
             string targetWithoutDoor = target.transform.parent.name.Replace("Door", "");
-
-            print(itemWithoutKey);
-            print(targetWithoutDoor);
             if (itemWithoutKey==targetWithoutDoor)
             {
                 playerMove.DoorEvent();
             }
         }
+        Destroy(item);
     }
 }
