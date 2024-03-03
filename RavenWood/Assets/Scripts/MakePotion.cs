@@ -21,11 +21,22 @@ public class MakePotion : MonoBehaviour
         ingredients[5].transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
     }
 
-    public void ChangeColor()
+    public void ChangeColor(bool wine, bool poison)
     {
         if (resultRenderer != null)
         {
-            resultRenderer.material.color = Color.red;
+            if (wine && !poison)
+            {
+                resultRenderer.material.color = Color.green;
+            }
+            else if (wine && poison || !wine && poison)
+            {
+                resultRenderer.material.color = Color.black;
+            }
+            else
+            {
+                resultRenderer.material.color = Color.red;
+            }
         }
     }
 }

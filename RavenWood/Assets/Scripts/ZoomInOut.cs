@@ -6,7 +6,7 @@ public class ZoomInOut : MonoBehaviour
 {
     GameObject scanObject;
     GameObject zoomObject;
-    public Quaternion currentRotation;
+    Quaternion currentRotation;
     public float ObjectDistance;
     public bool ZoomIn = false;
     public GameObject[] Panel;
@@ -64,8 +64,7 @@ public class ZoomInOut : MonoBehaviour
             transform.position = objData.savedPosition;
 
             Quaternion newRotation = Quaternion.identity * objData.savedRotation;
-
-            transform.rotation = newRotation;
+            transform.rotation = Quaternion.identity * newRotation;
         }
     }
 
