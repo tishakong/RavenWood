@@ -42,13 +42,13 @@ public class Item : MonoBehaviour
 
     void MakePotionWithItem()
     {
-        if (makePotion != null)
+        if (target.name.Contains("Pot"))
         {
-            Debug.Log(item);
             Destroy(item);
 
             // Find the ingredient with the same name as the destroyed item
             string itemName = item.name;
+            Debug.Log(itemName);
 
             // Use List.Find instead of Array.Find
             GameObject matchingIngredient = makePotion.ingredients.Find(ingredient => ingredient.name == itemName);
