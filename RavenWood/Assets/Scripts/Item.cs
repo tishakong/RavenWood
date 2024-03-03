@@ -10,20 +10,27 @@ public class Item : MonoBehaviour
     GameObject item;
     GameObject target;
 
-    public MakePotion makePotion;
     public PlayerMove playerMove;
+
+    void Start()
+    {
+        playerMove = FindObjectOfType<PlayerMove>();
+    }
 
     public void UseItem(GameObject selecteditem, GameObject scanObject)
     {
         item= selecteditem;
         target = scanObject;
+        print(item.name);
+        print(target.name);
 
         switch (item.name)
         {
             case "match":
                 match();
                 break;
-            case "Key":
+            case "RoomKey":
+                print(item.name);
                 OpenDoorWithKey();
                 break;
             case "Wine1":
@@ -94,23 +101,16 @@ public class Item : MonoBehaviour
 
     void OpenDoorWithKey()
     {
-        if (target.name.Contains("Door."))
+        if (target.name.Contains("Door"))
         {
-            Key key = target.GetComponentInParent<Key>();
-            Debug.Log(key);
-            if (playerMove == null)
-            {
-                Debug.Log("null");
-            }
-            if(playerMove.keyNum > 0)
-            {
-                Debug.Log("Key");
-                if (key.keyNum == playerMove.keyNum)
-                {
-                    key.doorOpen = true;
-                    playerMove.keyNum = 0;
-                }
+            string itemWithoutKey = item.name.Replace("Key", "");
+            string targetWithoutDoor = target.transform.parent.name.Replace("Door", "");
 
+            print(itemWithoutKey);
+            print(targetWithoutDoor);
+            if (itemWithoutKey==targetWithoutDoor)
+            {
+                playerMove.DoorEvent();
             }
         }
     }
