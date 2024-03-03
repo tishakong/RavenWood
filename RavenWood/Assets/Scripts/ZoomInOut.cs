@@ -15,6 +15,8 @@ public class ZoomInOut : MonoBehaviour
 
     public PlayerMove playerMove;
 
+    Collider PotionsCollider;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -55,9 +57,26 @@ public class ZoomInOut : MonoBehaviour
                             mixButton.SetActive(true);
                             scanObject.SetActive(true);
                         }
+                        else if (zoomObject.name == "Potions")
+                        {
+                            scanObject.SetActive(true);
+                            PotionsCollider = scanObject.GetComponent<Collider>();
+                            PotionsCollider.enabled = !PotionsCollider.enabled;
+                            StartCoroutine(ChangePotionTag(zoomObject));
+                        }
                     }
                 }
             }
+        }
+    }
+
+    IEnumerator ChangePotionTag(GameObject zoomObject)
+    {
+        yield return new WaitForSeconds(0.5f);
+        for (int i = 0; i < zoomObject.transform.childCount; i++)
+        {
+            Transform child = zoomObject.transform.GetChild(i);
+            child.gameObject.tag = "ObtainableObject";
         }
     }
 
@@ -91,6 +110,15 @@ public class ZoomInOut : MonoBehaviour
         {
             zoomObject.tag = "Zoom";
             mixButton.SetActive(false);
+        }
+        else if (zoomObject.name == "Potions")
+        {
+            PotionsCollider.enabled = !PotionsCollider.enabled;
+            for (int i = 0; i < zoomObject.transform.childCount; i++)
+            {
+                Transform child = zoomObject.transform.GetChild(i);
+                child.gameObject.tag = "Untagged";
+            }
         }
 
         backButton.SetActive(false);
