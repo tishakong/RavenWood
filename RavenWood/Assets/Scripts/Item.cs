@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Item : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Item : MonoBehaviour
     GameObject target;
 
     public MakePotion makePotion;
+    public PlayerMove playerMove;
 
     public void UseItem(GameObject selecteditem, GameObject scanObject)
     {
@@ -22,6 +24,7 @@ public class Item : MonoBehaviour
                 match();
                 break;
             case "Key":
+                OpenDoorWithKey();
                 break;
             case "Wine1":
             case "Wine2":
@@ -89,4 +92,21 @@ public class Item : MonoBehaviour
         }
     }
 
+    void OpenDoorWithKey()
+    {
+        Key key = item.GetComponent<Key>();
+
+        if (target.name.Contains("Door."))
+        {
+            Debug.Log(target);
+            for (int i=0; i < key.doors.Length; i++)
+            {
+                if (target == key.doors[i])
+                {
+                    playerMove.DoorOpen = true;
+                    Destroy(item);
+                }
+            }
+        }
+    }
 }
