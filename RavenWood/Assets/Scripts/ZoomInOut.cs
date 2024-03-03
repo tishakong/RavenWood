@@ -11,6 +11,7 @@ public class ZoomInOut : MonoBehaviour
     public bool ZoomIn = false;
     public GameObject[] Panel;
     public GameObject backButton;
+    public GameObject mixButton;
 
     public PlayerMove playerMove;
 
@@ -34,7 +35,6 @@ public class ZoomInOut : MonoBehaviour
                 {
                     if (scanObject.CompareTag("Zoom"))
                     {
-
                         zoomObject = scanObject;
 
                         currentRotation = transform.rotation;
@@ -47,6 +47,14 @@ public class ZoomInOut : MonoBehaviour
                         backButton.SetActive(true);
                         scanObject.SetActive(false);
                         ZoomIn = true;
+
+
+                        if (zoomObject.name == "Pot")
+                        {
+                            zoomObject.tag = "InteractiveObject";
+                            mixButton.SetActive(true);
+                            scanObject.SetActive(true);
+                        }
                     }
                 }
             }
@@ -78,6 +86,13 @@ public class ZoomInOut : MonoBehaviour
         if (data.isPanel){
             Panel[data.panelNum - 1].SetActive(false);
         }
+
+        if (zoomObject.name == "Pot")
+        {
+            zoomObject.tag = "Zoom";
+            mixButton.SetActive(false);
+        }
+
         backButton.SetActive(false);
         playerMove.EnableRotation();
         transform.SetParent(playerMove.transform);
