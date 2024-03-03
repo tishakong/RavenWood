@@ -9,7 +9,6 @@ public class PlayerMove : MonoBehaviour
 {
     Rigidbody rigid;
 
-
     public float walkSpeed;
     public float lookSensitivity;
     public float cameraRotationLimit;
@@ -26,6 +25,7 @@ public class PlayerMove : MonoBehaviour
     public InventoryManager inventoryManager;
     public Item item;
     public ZoomInOut zoom;
+    public MakePotion makePotion;
 
     public Animator[] doorAnimators;  // 여러 개의 문을 저장할 배열
     bool[] isOpenArray;               // 각 문의 상태를 저장하는 배열
@@ -97,6 +97,11 @@ public class PlayerMove : MonoBehaviour
                                 else if (scanObject.CompareTag("ObtainableObject"))
                                 {
                                     ObtainableObjectEvent();
+                                }
+                                else if (scanObject.CompareTag("FinishedPotion"))
+                                {
+                                    scanObject.SetActive(false);
+                                    manager.PotionEnding();
                                 }
                             }
                             else //인벤토리 아이템이 선택되어 있을 경우

@@ -10,11 +10,17 @@ public class GameManager : MonoBehaviour
     public ZoomInOut zoom;
 
     public PlayerMove playerMove;
+    public MakePotion makePotion;
+
     public GameObject talkPanel;        // 인포창 UI
     public GameObject hintPanel;        // 힌트창 UI
     public GameObject startPanel;       // 시작 패널
+    public GameObject gameOver;         // 게임 오버 패널
+
     public Text timerText;              // 제한 시간 확인 텍스트
     private float timeRemaining;        // 잔여 시간 관리 변수
+    bool isTimerRunning = true;         // 타이머 진행 여부
+
     public TextMeshProUGUI talkText;    // 게임창에 뜨는 텍스트
     public TextMeshProUGUI hintText;    // 힌트창에 뜨는 텍스트
     public GameObject scanObject;       // 플레이어가 조사한 대상
@@ -29,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (timeRemaining > 0)
+        if (isTimerRunning && timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
             int minutes = Mathf.FloorToInt(timeRemaining / 60);
@@ -37,9 +43,9 @@ public class GameManager : MonoBehaviour
             string timeString = string.Format("{0:00}:{1:00}", minutes, seconds);
             timerText.text = timeString;
         }
-        else
+        else if (timeRemaining <= 0)
         {
-            timerText.text = "제한 시간 초과(게임오버)";
+            GameOver();
         }
     }
 
@@ -125,5 +131,34 @@ public class GameManager : MonoBehaviour
     public void TurnOffStartPanel()
     {
         startPanel.SetActive(false);
+    }
+
+    public void StopTimer()
+    {
+        isTimerRunning = false;
+        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60);
+        string timeString = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = timeString;
+    }
+
+    public void PotionEnding()
+    {
+        if (makePotion.isPerfect)
+        {
+            StopTimer();
+            timerText.color = Color.green;
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        StopTimer();
+        timerText.color = Color.red;
+        gameOver.SetActive(true);
     }
 }
