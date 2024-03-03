@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
 
     public float ObjectDistance;      // 코드를 비활성화할지 여부
     private bool rotationEnabled = true;
-    private bool DoorOpen = false;
+    public  bool DoorOpen = false;
 
     GameObject scanObject;
     public GameObject selectedItem;
@@ -85,11 +85,6 @@ public class PlayerMove : MonoBehaviour
                                 {
                                     DoorEvent();
                                 }
-                                else if (scanObject.CompareTag("RoomDoor") && !zoom.ZoomIn)
-                                {
-                                    DoorEvent();
-                                    DoorOpen = true;
-                                }
                                 // 오브젝트 상태창 띄우기
                                 else if (scanObject.CompareTag("Object") || scanObject.CompareTag("InteractiveObject"))
                                 {
@@ -106,7 +101,6 @@ public class PlayerMove : MonoBehaviour
                                 if (scanObject.CompareTag("InteractiveObject")) //인벤토리 아이템과 상호작용이 가능한 오브젝트를 클릭하였으면 해당하는 상호작용 실행하는 코드 작성
                                 {
                                     item.UseItem(selectedItem, scanObject);
-                                    Debug.Log("실행");
                                 }
                                 Image itemImage = selectedItem.transform.parent.GetComponent<Image>();
                                 itemImage.color = Color.white;
