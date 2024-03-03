@@ -168,7 +168,6 @@ public class PlayerMove : MonoBehaviour
     void DoorEvent()
     {
         Animator doorAnimator = scanObject.GetComponentInParent<Animator>();
-
         if (doorAnimator != null)
         {
             int doorIndex = System.Array.IndexOf(doorAnimators, doorAnimator);
@@ -179,11 +178,13 @@ public class PlayerMove : MonoBehaviour
                 {
                     doorAnimator.SetBool("isOpen", false);
                     isOpenArray[doorIndex] = false;
+                    print(doorAnimator.GetBool("isOpen"));
                 }
                 else
                 {
                     doorAnimator.SetBool("isOpen", true);
                     isOpenArray[doorIndex] = true;
+                    print(doorAnimator.GetBool("isOpen"));
                 }
             }
         }
