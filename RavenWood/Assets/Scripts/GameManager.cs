@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public PlayerMove playerMove;
     public GameObject talkPanel;        // 인포창 UI
     public GameObject hintPanel;        // 힌트창 UI
+    public GameObject startPanel;       // 시작 패널
     public Text timerText;              // 제한 시간 확인 텍스트
     private float timeRemaining;        // 잔여 시간 관리 변수
     public TextMeshProUGUI talkText;    // 게임창에 뜨는 텍스트
@@ -119,5 +120,10 @@ public class GameManager : MonoBehaviour
         talkText.text = "재료를 넣고 섞어야할 것 같다.";
         talkPanel.SetActive(true);
         Invoke("DelayedHidePanel", panelHideDelay);
+    }
+
+    public void TurnOffStartPanel()
+    {
+        startPanel.SetActive(false);
     }
 }
