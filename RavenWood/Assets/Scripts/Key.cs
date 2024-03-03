@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    public GameObject[] doors;
+    public int keyNum;
+    public bool doorOpen = false;
 }

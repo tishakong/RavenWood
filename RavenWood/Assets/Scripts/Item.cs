@@ -94,18 +94,23 @@ public class Item : MonoBehaviour
 
     void OpenDoorWithKey()
     {
-        Key key = item.GetComponent<Key>();
-
         if (target.name.Contains("Door."))
         {
-            Debug.Log(target);
-            for (int i=0; i < key.doors.Length; i++)
+            Key key = target.GetComponentInParent<Key>();
+            Debug.Log(key);
+            if (playerMove == null)
             {
-                if (target == key.doors[i])
+                Debug.Log("null");
+            }
+            if(playerMove.keyNum > 0)
+            {
+                Debug.Log("Key");
+                if (key.keyNum == playerMove.keyNum)
                 {
-                    playerMove.DoorOpen = true;
-                    Destroy(item);
+                    key.doorOpen = true;
+                    playerMove.keyNum = 0;
                 }
+
             }
         }
     }
