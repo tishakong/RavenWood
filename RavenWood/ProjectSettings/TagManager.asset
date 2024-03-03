@@ -10,6 +10,8 @@ TagManager:
   - ObtainableObject
   - InteractiveObject
   - Pot
+  - RoomDoor
+  - Room
   layers:
   - Default
   - TransparentFX

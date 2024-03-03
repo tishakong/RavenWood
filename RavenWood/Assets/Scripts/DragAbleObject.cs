@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class DragAbleObject : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class DragAbleObject : MonoBehaviour
     bool isDragging = false;
     float clickTime = 0f;
     float dragDelay = 0.5f; // 움직이기 위한 최소 클릭 시간
+    Vector3 startPosition;
     new Rigidbody rigidbody;
     new Collider collider;
 
@@ -19,6 +21,7 @@ public class DragAbleObject : MonoBehaviour
     {
         mousePosition = Input.mousePosition - GetMousePos();
         clickTime = Time.time;
+        startPosition = transform.position; // 시작 포지션 기억
     }
 
     private void OnMouseDrag()
@@ -32,16 +35,10 @@ public class DragAbleObject : MonoBehaviour
 
         if (isDragging)
         {
-            // 마우스의 이동 방향으로 레이캐스트 수행
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo))
+            // 충돌 여부를 검사하여 이동을 멈춤
+            if (isColliding())
             {
-                // 충돌한 객체의 Collider를 가져옴
-                Collider hitCollider = hitInfo.collider;
-                // 만약 충돌한 객체의 Collider가 자신의 Collider가 아니면 이동을 막음
-                if (hitCollider != collider)
-                    return;
+                return;
             }
 
             // 충돌이 없으면 이동 가능하므로 위치 변경
@@ -52,7 +49,7 @@ public class DragAbleObject : MonoBehaviour
     private void OnMouseUp()
     {
         isDragging = false;
-        EndDragging();
+        StartCoroutine(EndDraggingWithDelay());
     }
 
     private Vector3 GetMousePos()
@@ -64,13 +61,46 @@ public class DragAbleObject : MonoBehaviour
     {
         rigidbody.mass = 0.1f;
         rigidbody.useGravity = false;
-        rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    void EndDragging()
+    IEnumerator EndDraggingWithDelay()
     {
         rigidbody.mass = 5f;
         rigidbody.useGravity = true;
-        rigidbody.constraints &= ~RigidbodyConstraints.FreezeRotation;
+
+        yield return new WaitForSeconds(1f);
+
+        if (transform.position.y < 0)
+        {
+            transform.position = startPosition;
+        }
+    }
+
+    bool isColliding()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, collider.bounds.extents);
+        foreach (Collider col in colliders)
+        {
+            if (col.tag == "Room" && col != collider && isDragging)
+            {
+                Vector3 direction = col.ClosestPoint(transform.position) - transform.position;
+                Debug.Log("Collided with object at direction: " + direction.normalized);
+
+                // 충돌한 방향의 반대 방향으로 힘을 가하기 위해 방향을 반전시킴
+                Vector3 forceDirection = -direction.normalized;
+
+                isDragging = false;
+
+                // 힘을 가할 정도를 조절할 수 있도록 설정 (이 예제에서는 10의 힘을 가함)
+                float forceMagnitude = 10f;
+
+                // Rigidbody에 힘을 가함
+                rigidbody.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
+
+                // 충돌한 위치로 이동시키지 않음
+                return false;
+            }
+        }
+        return false;
     }
 }
