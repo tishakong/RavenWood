@@ -19,11 +19,11 @@ public class GameManager : MonoBehaviour
     public GameObject scanObject;       // 플레이어가 조사한 대상
     public bool isAction;               // 상태 저장용 변수
 
-    private float panelHideDelay = 5f;
+    private float panelHideDelay = 3f;
 
     private void Awake()
     {
-        timeRemaining = 600.0f;
+        timeRemaining = 1200.0f;
     }
 
     void Update()
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void DelayedHidePanel()
+    public void DelayedHidePanel()
     {
         talkPanel.SetActive(false);
         isAction = false;
@@ -98,5 +98,26 @@ public class GameManager : MonoBehaviour
             hintPanel.SetActive(isAction);
             playerMove.EnableRotation();
         }
+    }
+
+    public void OutOfHands()
+    {
+        talkText.text = "손이 부족하다";
+        talkPanel.SetActive(true);
+        Invoke("DelayedHidePanel", panelHideDelay);
+    }
+
+    public void NeedFire()
+    {
+        talkText.text = "불을 먼저 붙여야 할 것 같다.";
+        talkPanel.SetActive(true);
+        Invoke("DelayedHidePanel", panelHideDelay);
+    }
+
+    public void NeedIngredient()
+    {
+        talkText.text = "재료를 넣고 섞어야할 것 같다.";
+        talkPanel.SetActive(true);
+        Invoke("DelayedHidePanel", panelHideDelay);
     }
 }
