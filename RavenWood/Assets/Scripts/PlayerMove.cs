@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
 
     public float ObjectDistance;      // 코드를 비활성화할지 여부
     private bool rotationEnabled = true;
+    private bool DoorOpen = false;
 
     GameObject scanObject;
     public GameObject selectedItem;
@@ -79,10 +80,15 @@ public class PlayerMove : MonoBehaviour
                         {
                             if (selectedItem == null) //인벤토리 아이템 선택이 안되어 있을 경우
                             {
-                                // 문 열기
+                                // 서랍장 열기
                                 if (scanObject.CompareTag("Door") && !zoom.ZoomIn)
                                 {
                                     DoorEvent();
+                                }
+                                else if (scanObject.CompareTag("RoomDoor") && !zoom.ZoomIn)
+                                {
+                                    DoorEvent();
+                                    DoorOpen = true;
                                 }
                                 // 오브젝트 상태창 띄우기
                                 else if (scanObject.CompareTag("Object") || scanObject.CompareTag("InteractiveObject"))
