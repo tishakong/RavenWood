@@ -1,41 +1,119 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MakePotion : MonoBehaviour
 {
     public float rotateSpeed;
-
     public Renderer resultRenderer;
 
-    // 0: 꽃, 1: 우유, 2: 물, 3: 포션, 4: 토마토, 5: 결과물, 6: 와인, 7: 독
-    public List<GameObject> ingredients = new List<GameObject>();
+    private bool isBoiling = false;
+    public bool isBurning = false;
+    private bool isWine = false;
+    private bool isPoison = false;
+    private bool isPerfect = false;
 
-    private void Update()
+    List<string> list = new List<string>(); // 리스트 초기화
+
+    void Update()
     {
-        Boil();
+        if (isBoiling)
+        {
+            Boil();
+        }
     }
 
     void Boil()
     {
-        ingredients[5].transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
     }
 
-    public void ChangeColor(bool wine, bool poison)
+    public void StartBoiling()
     {
-        if (resultRenderer != null)
+        foreach (Transform sibling in transform.parent.transform.parent)
         {
-            if (wine && !poison)
+            if (sibling.gameObject.activeSelf && sibling != transform.parent)
             {
-                resultRenderer.material.color = Color.green;
+                isBurning = true;
+                break;
             }
-            else if (wine && poison || !wine && poison)
+        }
+
+        if (isBurning)
+        {
+            foreach (Transform IngredientTransform in transform.parent)
             {
-                resultRenderer.material.color = Color.black;
+                if (IngredientTransform != transform)
+                {
+                    if (IngredientTransform.gameObject.activeSelf)
+                    {
+                        list.Add(IngredientTransform.name);
+                    }
+                    Destroy(IngredientTransform.gameObject);
+                }
+            }
+
+            if(list.Count > 0)
+            {
+                this.gameObject.SetActive(true);
+                StartCoroutine(BoilForSeconds(3f));
             }
             else
             {
+                print("재료를 넣고 섞어야할 것 같다.");
+            }
+        }
+        else
+        {
+            print("불을 먼저 붙여야 할 것 같다.");
+        }
+    }
+
+    IEnumerator BoilForSeconds(float seconds)
+    {
+        isBoiling = true;
+        yield return new WaitForSeconds(seconds);
+        isBoiling = false;
+
+        if (list.Count > 0)
+        {
+            if (list.Contains("Wine"))
+            {
+                isWine = true;
+            }
+            else if (list.Contains("Poison"))
+            {
+                isPoison = true;
+            }
+            else if (list.Intersect(new List<string> { "Water", "Potion", "Flower", "Tomato", "Milk" }).Count() == 5)
+            {
+                isPerfect = true;
+            }
+
+            ChangeColor(isWine, isPoison, isPerfect);
+        }
+    }
+
+    public void ChangeColor(bool wine, bool poison, bool perfect)
+    {
+        if (resultRenderer != null)
+        {
+            if (wine)
+            {
+                resultRenderer.material.color = Color.green;
+            }
+            else if (poison)
+            {
+                resultRenderer.material.color = Color.black;
+            }
+            else if (perfect)
+            {
                 resultRenderer.material.color = Color.red;
+            }
+            else
+            {
+                resultRenderer.material.color = Color.white;
             }
         }
     }

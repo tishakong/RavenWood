@@ -24,6 +24,14 @@ public class Item : MonoBehaviour
             case "Key":
                 break;
             case "Wine1":
+            case "Wine2":
+            case "Water":
+            case "Medicine":
+            case "Poison1":
+            case "Poison2":
+            case "Poison3":
+            case "Flower":
+            case "Tomato":
                 MakePotionWithItem();
                 break;
         }
@@ -44,26 +52,40 @@ public class Item : MonoBehaviour
     {
         if (target.name.Contains("Pot"))
         {
-            Destroy(item);
-
-            // Find the ingredient with the same name as the destroyed item
-            string itemName = item.name;
-            Debug.Log(itemName);
-
-            // Use List.Find instead of Array.Find
-            GameObject matchingIngredient = makePotion.ingredients.Find(ingredient => ingredient.name == itemName);
-            Debug.Log(matchingIngredient);
-
-            if (matchingIngredient != null)
+            foreach (Transform child in target.transform)
             {
-                // Activate the matching ingredient's child object in the target
-                Transform ingredientChild = target.transform.Find(matchingIngredient.name);
-
-                if (ingredientChild != null)
+                if (item.name.Contains("Wine") && child.name == "Wine")
                 {
-                    ingredientChild.gameObject.SetActive(true);
+                    child.gameObject.SetActive(true);
+                    break;
+                }
+                else if (item.name.Contains("Poison") && child.name == "Poison")
+                {
+                    child.gameObject.SetActive(true);
+                    break;
+                }
+                else if (item.name.Contains("Water") && child.name == "Water")
+                {
+                    child.gameObject.SetActive(true);
+                    break;
+                }
+                else if (item.name.Contains("Medicine") && child.name == "Potion")
+                {
+                    child.gameObject.SetActive(true);
+                    break;
+                }
+                else if (item.name.Contains("Flower") && child.name == "Flower")
+                {
+                    child.gameObject.SetActive(true);
+                    break;
+                }
+                else if (item.name.Contains("Tomato") && child.name == "Tomato")
+                {
+                    child.gameObject.SetActive(true);
+                    break;
                 }
             }
+            Destroy(item);
         }
     }
 
