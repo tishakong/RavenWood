@@ -11,6 +11,7 @@ public class InventoryManager : MonoBehaviour
     public List<Transform> slotTransforms; // 슬롯의 Transform 리스트
     public List<GameObject> inventorySlots = new List<GameObject>(); // 인벤토리 슬롯 리스트
     public List<Sprite> itemImageList = new List<Sprite>(); // 아이템 이미지 리스트
+    Sprite itemImage;
 
     public ItemManager itemManager; // 아이템에 추가할 스크립트
 
@@ -34,7 +35,14 @@ public class InventoryManager : MonoBehaviour
 
     public void AddToInventory(string itemObjectName)
     {
-        Sprite itemImage = GetItemImage(itemObjectName);
+        if (itemObjectName.Contains("Key"))
+        {
+            itemImage = GetItemImage("Key");
+        }
+        else
+        {
+            itemImage = GetItemImage(itemObjectName);
+        }
 
         for (int i = 0; i < 10; i++)
         {

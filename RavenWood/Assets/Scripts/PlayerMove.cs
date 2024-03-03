@@ -21,8 +21,6 @@ public class PlayerMove : MonoBehaviour
 
     public GameObject scanObject;
     public GameObject selectedItem;
-    public GameObject[] keys;
-    public int keyNum = 0;
 
     public GameManager manager;
     public InventoryManager inventoryManager;
@@ -86,14 +84,6 @@ public class PlayerMove : MonoBehaviour
                                 if (scanObject.CompareTag("Door") && !zoom.ZoomIn)
                                 {
                                     DoorEvent();
-                                }
-                                else if (scanObject.CompareTag("InteractiveObject") && scanObject.layer == LayerMask.NameToLayer("Door"))
-                                {
-                                    Key key = scanObject.GetComponentInParent<Key>();
-                                    if (key.doorOpen)
-                                    {
-                                        DoorEvent();
-                                    }
                                 }
                                 // 오브젝트 상태창 띄우기
                                 else if (scanObject.CompareTag("Object") || scanObject.CompareTag("InteractiveObject"))
@@ -176,7 +166,7 @@ public class PlayerMove : MonoBehaviour
         rotationEnabled = true;
     }
 
-    void DoorEvent()
+    public void DoorEvent()
     {
         Animator doorAnimator = scanObject.GetComponentInParent<Animator>();
         if (doorAnimator != null)
@@ -205,15 +195,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (inventoryManager.isInventoryActivate)
         {
-            for (int i = 0; i < keys.Length; i++)
-            {
-                keyNum++;
-                if (scanObject == keys[i])
-                {
-                    break;
-                }
-            }
-
             inventoryManager.AddToInventory(scanObject.name);
             Destroy(scanObject);
         }
