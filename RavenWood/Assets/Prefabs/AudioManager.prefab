@@ -45,18 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db7215bcdd19e4781c7dac019690e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ADGetItem: {fileID: 0}
-  ADBoiling: {fileID: 0}
-  ADUIBtnClk: {fileID: 0}
-  ADDrinking: {fileID: 0}
-  ADMatch: {fileID: 0}
-  ADPouring: {fileID: 0}
-  ADDrawer: {fileID: 0}
-  ADDoor: {fileID: 0}
-  ADKey: {fileID: 0}
-  ADPushBtn: {fileID: 0}
-  ADItemNotice: {fileID: 0}
-  ADPause: {fileID: 0}
+  ADGetItem: {fileID: 8300000, guid: 95a624520cd0303499e14b16d44dd202, type: 3}
+  ADBoiling: {fileID: 8300000, guid: b05e4e5b4e4368e4a93c244642c41061, type: 3}
+  ADUIBtnClk: {fileID: 8300000, guid: cd59ec793eb518246a96e2ebadb4d680, type: 3}
+  ADDrinking: {fileID: 8300000, guid: 45f1a7bafc8503e4db1dfea1643d11ce, type: 3}
+  ADMatch: {fileID: 8300000, guid: 7c6768dafe5d8964390948fce8fdbd2b, type: 3}
+  ADPouring: {fileID: 8300000, guid: 63fab790022ee7b478543310db528edf, type: 3}
+  ADDrawer: {fileID: 8300000, guid: c6412946ecc030a4da08bbb1209dc87f, type: 3}
+  ADDoor: {fileID: 8300000, guid: 34c260d38280e2147b191076236da765, type: 3}
+  ADKey: {fileID: 8300000, guid: 60f9743d4627a3c449cec58d4f17f17b, type: 3}
+  ADCloset: {fileID: 8300000, guid: 414f0c03a04bd6448888fafae715a598, type: 3}
   audioSource: {fileID: 0}
 --- !u!82 &8768640960053327987
 AudioSource:
