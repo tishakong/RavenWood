@@ -11331,11 +11331,13 @@ MonoBehaviour:
   zoom: {fileID: 810312037}
   playerMove: {fileID: 1402348668}
   makePotion: {fileID: 444007926}
+  mainCamera: {fileID: 0}
   talkPanel: {fileID: 1909300753}
   hintPanel: {fileID: 379887015}
   startPanel: {fileID: 1509960603}
   gameOver: {fileID: 251129274}
   timerText: {fileID: 1095450318}
+  startText: {fileID: 0}
   talkText: {fileID: 1397329012}
   hintText: {fileID: 1157554209}
   scanObject: {fileID: 0}
@@ -11536,7 +11538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &251129275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29738,8 +29740,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Over
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1490dfc2b6c2d2c489a9909814499029, type: 2}
-  m_sharedMaterial: {fileID: 6909932029775150914, guid: 1490dfc2b6c2d2c489a9909814499029, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
