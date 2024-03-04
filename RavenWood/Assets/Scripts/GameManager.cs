@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject talkPanel;        // 인포창 UI
     public GameObject hintPanel;        // 힌트창 UI
     public GameObject startPanel;       // 시작 패널
+    public GameObject endPanel;
     public GameObject gameOver;         // 게임 오버 패널
 
     public Text timerText;              // 제한 시간 확인 텍스트
@@ -26,11 +28,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI startText;   // 시작 안내 문구
     public TextMeshProUGUI talkText;    // 게임창에 뜨는 텍스트
     public TextMeshProUGUI hintText;    // 힌트창에 뜨는 텍스트
+    public TextMeshProUGUI endText;     // 포션 엔딩창 문구
+
     public GameObject scanObject;       // 플레이어가 조사한 대상
     public bool isAction;               // 상태 저장용 변수
+    bool isStartPanel = false;
     int startTextNum;
 
     private float panelHideDelay = 3f;
+    private Coroutine displayTextCoroutine;
 
     private void Awake()
     {
@@ -147,11 +153,19 @@ public class GameManager : MonoBehaviour
         {
             StopTimer();
             timerText.color = Color.green;
-            RightPosionEndingPanel();
+            startTextNum = 10;
+            isStartPanel = true;
+
+            // Call the coroutine for the right potion ending
+            displayTextCoroutine = StartCoroutine(DisplayTextCoroutine(RightPosionEndingPanel));
         }
         else
         {
-            WrongPotionEndingPanel();
+            startTextNum = 20;
+            isStartPanel = true;
+
+            // Call the coroutine for the wrong potion ending
+            displayTextCoroutine = StartCoroutine(DisplayTextCoroutine(WrongPotionEndingPanel));
         }
     }
 
@@ -162,72 +176,88 @@ public class GameManager : MonoBehaviour
         gameOver.SetActive(true);
     }
 
+    // Modified coroutine to display text one by one
+    private IEnumerator DisplayTextCoroutine(Action displayMethod)
+    {
+        while (isStartPanel)
+        {
+            displayMethod.Invoke();
+            yield return new WaitForSeconds(3f); // Adjust the delay as needed
+        }
+    }
+
     public void WrongPotionEndingPanel()
     {
+        endPanel.SetActive(true);
         startTextNum++;
-        if (startTextNum == 1)
+
+        if (startTextNum == 21)
         {
-            startText.text = "(꿀꺽 꿀꺽)";
+            endText.text = "(꿀꺽 꿀꺽)";
         }
-        if (startTextNum == 2)
+        else if (startTextNum == 22)
         {
-            startText.text = "(털썩)";
+            endText.text = "(털썩)";
         }
-        else if (startTextNum == 3)
+        else if (startTextNum == 23)
         {
-            startText.text = "...";
+            endText.text = "...";
         }
-        else if (startTextNum == 4)
+        else if (startTextNum == 24)
         {
-            startText.text = "이럴 수가...";
+            endText.text = "이럴 수가...";
         }
-        else if (startTextNum == 5)
+        else if (startTextNum == 25)
         {
-            startText.text = "설마 잘못된 약물을 넣은 것인가...";
+            endText.text = "설마 잘못된 약물을 넣은 것인가...";
         }
-        else if (startTextNum == 6)
+        else if (startTextNum == 26)
         {
-            startText.text = "...";
+            endText.text = "...";
         }
-        else if (startTextNum == 7)
+        else if (startTextNum == 27)
         {
-            startPanel.SetActive(false);
+            endPanel.SetActive(false);
+            isStartPanel = false;
             GameOver();
         }
     }
-        public void RightPosionEndingPanel()
-        {
-            startTextNum++;
-            if (startTextNum == 1)
-            {
-                startText.text = "(꿀꺽 꿀꺽)";
-            }
-            if (startTextNum == 2)
-            {
-                startText.text = "...";
-            }
-            else if (startTextNum == 3)
-            {
-                startText.text = "이럴 수가...";
-            }
-            else if (startTextNum == 4)
-            {
-                startText.text = "몸이 훨씬 가벼워졌어.";
-            }
-            else if (startTextNum == 5)
-            {
-                startText.text = "독이 해독된건가!";
-            }
-            else if (startTextNum == 6)
-            {
-                startText.text = "이제 이 방을 나갈 방법을 찾아야겠군.";
-            }
-            else if (startTextNum == 7)
-            {
-                startPanel.SetActive(false);
-            }
 
+    public void RightPosionEndingPanel()
+    {
+        endPanel.SetActive(true);
+        startTextNum++;
+
+        if (startTextNum == 11)
+        {
+            endText.text = "(꿀꺽 꿀꺽)";
         }
+        if (startTextNum == 12)
+        {
+            endText.text = "...";
+        }
+        else if (startTextNum == 13)
+        {
+            endText.text = "이럴 수가...";
+        }
+        else if (startTextNum == 14)
+        {
+            endText.text = "몸이 훨씬 가벼워졌어.";
+        }
+        else if (startTextNum == 15)
+        {
+            endText.text = "독이 해독된건가!";
+        }
+        else if (startTextNum == 16)
+        {
+            endText.text = "이제 이 방을 나갈 방법을 찾아야겠군.";
+        }
+        else if (startTextNum == 17)
+        {
+            endPanel.SetActive(false);
+            isStartPanel = false;
+        }
+    }
 
     public void TurnOffStartPanel()
     {
