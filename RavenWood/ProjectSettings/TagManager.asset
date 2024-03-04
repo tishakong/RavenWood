@@ -12,6 +12,7 @@ TagManager:
   - Pot
   - Room
   - FinishedPotion
+  - Outside
   layers:
   - Default
   - TransparentFX
