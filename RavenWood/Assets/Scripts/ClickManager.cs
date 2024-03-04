@@ -16,7 +16,7 @@ public class ClickManager : MonoBehaviour
     {
         //0번대: 침실
         talkData.Add(1, "방금까지 내가 누워있던 폭신한 침대이다.");
-        talkData.Add(2, "호수 그림이 그려져 있는 액자다. 왜인지 빛이 새어나오는 것 같다.");
+        talkData.Add(2, "호수가 그려져 있는 액자다. 왠지 빛이 새어나오는 것 같다.");
         talkData.Add(3, "값이 비싸기로 유명한 발광석이다.");
         talkData.Add(4, "약재를 상자 채로 거래한 내역이 쓰여있는 장부다.");
         talkData.Add(5, "아무렇게나 쌓여있는 상자다. 힘을 주면 들 수 있을 것 같다.");
