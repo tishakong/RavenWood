@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 
-public class GameManager : MonoBehaviour
+public class GameManager_SKY : MonoBehaviour
 {
     public ClickManager clickManager;
     public ZoomInOut zoom;
