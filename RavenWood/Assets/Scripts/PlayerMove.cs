@@ -204,6 +204,11 @@ public class PlayerMove : MonoBehaviour
         if (inventoryManager.isInventoryActivate)
         {
             inventoryManager.AddToInventory(scanObject.name);
+            if (scanObject.name == "Tomato")
+            {
+                scanObject.tag = "Untagged";
+                return;
+            }
             Destroy(scanObject);
         }
         else

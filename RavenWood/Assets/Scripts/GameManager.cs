@@ -57,7 +57,11 @@ public class GameManager : MonoBehaviour
     {
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
-        Talk(objData.id, objData.isClue);
+        if (objData != null)
+        {
+            Talk(objData.id, objData.isClue);
+        }
+        
 
         // 인포창
         if (!objData.isClue)
@@ -113,7 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void OutOfHands()
     {
-        talkText.text = "손이 부족하다";
+        talkText.text = "손이 부족하다. 가방을 먼저 얻어야겠다.";
         talkPanel.SetActive(true);
         Invoke("DelayedHidePanel", panelHideDelay);
     }
