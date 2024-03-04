@@ -132,11 +132,6 @@ public class GameManager : MonoBehaviour
         Invoke("DelayedHidePanel", panelHideDelay);
     }
 
-    public void TurnOffStartPanel()
-    {
-        startPanel.SetActive(false);
-    }
-
     public void StopTimer()
     {
         isTimerRunning = false;
@@ -172,7 +167,6 @@ public class GameManager : MonoBehaviour
         startTextNum++;
         if (startTextNum == 1)
         {
-            mainCamera.AddComponent<SmoothCameraRotation>();
             startText.text = "(꿀꺽 꿀꺽)";
         }
         if (startTextNum == 2)
@@ -197,15 +191,6 @@ public class GameManager : MonoBehaviour
         }
         else if (startTextNum == 7)
         {
-            SmoothCameraRotation smoothCameraRotation = mainCamera.GetComponent<SmoothCameraRotation>();
-            if (smoothCameraRotation != null)
-            {
-                smoothCameraRotation.isStart = true;
-            }
-            else
-            {
-                Debug.LogWarning("SmoothCameraRotation script not found on mainCamera!"); // 스크립트를 찾지 못한 경우 경고를 출력합니다.
-            }
             startPanel.SetActive(false);
             GameOver();
         }
@@ -215,7 +200,6 @@ public class GameManager : MonoBehaviour
             startTextNum++;
             if (startTextNum == 1)
             {
-                mainCamera.AddComponent<SmoothCameraRotation>();
                 startText.text = "(꿀꺽 꿀꺽)";
             }
             if (startTextNum == 2)
@@ -240,17 +224,58 @@ public class GameManager : MonoBehaviour
             }
             else if (startTextNum == 7)
             {
-                SmoothCameraRotation smoothCameraRotation = mainCamera.GetComponent<SmoothCameraRotation>();
-                if (smoothCameraRotation != null)
-                {
-                    smoothCameraRotation.isStart = true;
-                }
-                else
-                {
-                    Debug.LogWarning("SmoothCameraRotation script not found on mainCamera!"); // 스크립트를 찾지 못한 경우 경고를 출력합니다.
-                }
                 startPanel.SetActive(false);
             }
 
         }
+
+    public void TurnOffStartPanel()
+    {
+        startTextNum++;
+        if (startTextNum == 1)
+        {
+            mainCamera.AddComponent<SmoothCameraRotation>();
+            startText.text = "여긴 어디지? 분명 레이븐우드 영주와 만찬을 즐기고 있었는데..";
+        }
+        if (startTextNum == 2)
+        {
+            startText.text = "영주가 발광석 광산 계약을 얘기하며 건네준 와인을 마신 것이 마지막 기억이다.";
+        }
+        else if (startTextNum == 3)
+        {
+            startText.text = "...";
+        }
+        else if (startTextNum == 4)
+        {
+            startText.text = "레이븐우드 영주가 독에 해박하다는 소문이 있었는데... 설마?";
+        }
+        else if (startTextNum == 5)
+        {
+            startText.text = "다시 돌아보니 의심스러운 정황이 많다. 분명 독을 사용했다. \n그렇지 않으면 내가 갑자기 정신을 잃을리 없지.";
+        }
+        else if (startTextNum == 6)
+        {
+            startText.text = "이럴 때가 아니다. 인기척이 없는 것을 보니 지금이 기회다. \n독이 퍼지고 영주가 돌아오기 전에 여기를 탈출해야만 한다.";
+        }
+        else if (startTextNum == 7)
+        {
+            GameObject playerObject = GameObject.Find("Player");
+            PlayerMove playerMoveScript = playerObject.GetComponent<PlayerMove>();
+
+            if (playerMoveScript != null)
+            {
+                playerMoveScript.enabled = true;
+            }
+
+            if (playerObject != null)
+            {
+                Destroy(mainCamera.GetComponent<SmoothCameraRotation>());
+                mainCamera.transform.parent = playerObject.transform;
+                mainCamera.transform.localPosition = new Vector3(0f, 0.6f, 0f);
+                mainCamera.transform.localRotation = Quaternion.identity;
+            }
+
+            startPanel.SetActive(false);
+        }
     }
+}

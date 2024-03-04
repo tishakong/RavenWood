@@ -6,9 +6,7 @@ public class SmoothCameraRotation : MonoBehaviour
 {
     public Transform target; // 카메라가 바라볼 대상
     public float rotationSpeed = 1.0f; // 회전 속도
-
     private Quaternion targetRotation; // 목표 회전값
-    public bool isStart = false;
 
     void Start()
     {
@@ -27,16 +25,6 @@ public class SmoothCameraRotation : MonoBehaviour
 
     void Update()
     {
-        if (isStart)
-        {
-            GameObject playerObject = GameObject.Find("Respawn");
-
-            if (playerObject != null)
-            {
-                target = playerObject.transform;
-            }
-        }
-
         if (target != null)
         {
             // 대상을 바라보는 방향 벡터를 구합니다.
