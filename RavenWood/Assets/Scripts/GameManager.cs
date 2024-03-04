@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public ZoomInOut zoom;
 
     public PlayerMove playerMove;
+    public AudioManager audioManager;
     public MakePotion makePotion;
     public Camera mainCamera;
 
@@ -115,6 +116,7 @@ public class GameManager : MonoBehaviour
         // 힌트창
         if (isAction)
         {
+            audioManager.PlaySound("UIBtnClk");
             isAction = false;
             hintPanel.SetActive(isAction);
             playerMove.EnableRotation();
@@ -153,6 +155,7 @@ public class GameManager : MonoBehaviour
 
     public void PotionEnding()
     {
+        audioManager.PlaySound("Drinking");
         if (makePotion.isPerfect)
         {
             StopTimer();
@@ -201,25 +204,22 @@ public class GameManager : MonoBehaviour
         }
         else if (startTextNum == 22)
         {
-            endText.text = "(털썩)";
+            endText.text = "...";
         }
         else if (startTextNum == 23)
         {
-            endText.text = "...";
+            endText.text = "이럴 수가...";
         }
         else if (startTextNum == 24)
         {
-            endText.text = "이럴 수가...";
+            endText.text = "설마 잘못된 약물을 넣은 것인가...";
         }
         else if (startTextNum == 25)
         {
-            endText.text = "설마 잘못된 약물을 넣은 것인가...";
+            audioManager.PlaySound("Dead");
+            endText.text = "(털썩)";
         }
         else if (startTextNum == 26)
-        {
-            endText.text = "...";
-        }
-        else if (startTextNum == 27)
         {
             endPanel.SetActive(false);
             isStartPanel = false;
@@ -265,6 +265,7 @@ public class GameManager : MonoBehaviour
 
     public void TurnOffStartPanel()
     {
+        audioManager.PlaySound("UIBtnClk");
         startTextNum++;
         if (startTextNum == 1)
         {

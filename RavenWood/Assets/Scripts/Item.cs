@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
     GameObject target;
 
     public PlayerMove playerMove;
+    public AudioManager audioManager;
 
     void Start()
     {
@@ -51,6 +52,7 @@ public class Item : MonoBehaviour
             foreach (Transform child in target.transform)
             {
                 child.gameObject.SetActive(true);
+                audioManager.PlaySound("Match");
             }
         }
     }
@@ -61,34 +63,20 @@ public class Item : MonoBehaviour
         {
             foreach (Transform child in target.transform)
             {
-                if (item.name.Contains("Wine") && child.name == "Wine")
+                if (item.name.Contains("Wine") && child.name == "Wine" ||
+                    item.name.Contains("Poison") && child.name == "Poison" ||
+                    item.name.Contains("Water") && child.name == "Water" ||
+                    item.name.Contains("Water") && child.name == "Water" ||
+                    item.name.Contains("Medicine") && child.name == "Potion")
                 {
                     child.gameObject.SetActive(true);
+                    audioManager.PlaySound("Pouring");
                     break;
                 }
-                else if (item.name.Contains("Poison") && child.name == "Poison")
+                else if (item.name.Contains("Flower") && child.name == "Flower"|| item.name.Contains("Tomato") && child.name == "Tomato")
                 {
                     child.gameObject.SetActive(true);
-                    break;
-                }
-                else if (item.name.Contains("Water") && child.name == "Water")
-                {
-                    child.gameObject.SetActive(true);
-                    break;
-                }
-                else if (item.name.Contains("Medicine") && child.name == "Potion")
-                {
-                    child.gameObject.SetActive(true);
-                    break;
-                }
-                else if (item.name.Contains("Flower") && child.name == "Flower")
-                {
-                    child.gameObject.SetActive(true);
-                    break;
-                }
-                else if (item.name.Contains("Tomato") && child.name == "Tomato")
-                {
-                    child.gameObject.SetActive(true);
+                    audioManager.PlaySound("GetItem");
                     break;
                 }
             }
@@ -98,20 +86,19 @@ public class Item : MonoBehaviour
 
     void OpenDoorWithKey()
     {
-        print("Key를 사용함");
         if (target.name.Contains("Door"))
         {
-            print("상호작용한 오브젝트가 Door임");
             string TargetKey = item.name.Replace("Key", "");
             string TargetDoorParent = target.transform.parent.name.Replace("Door", "");
             string TargetDoor = target.name.Replace("Door", "");
             if (TargetKey==TargetDoor || TargetKey==TargetDoorParent)
             {
-                print("키와 도어명이 일치함");
+                audioManager.PlaySound("Key");
                 playerMove.DoorEvent();
                 Destroy(item);
                 Destroy(target.GetComponent<ObjectData>());
                 Destroy(target.GetComponentInParent<ObjectData>());
+                Destroy(target.GetComponentInChildren<ObjectData>());
             }
         }
     }
