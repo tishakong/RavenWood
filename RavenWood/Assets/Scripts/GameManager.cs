@@ -21,10 +21,12 @@ public class GameManager : MonoBehaviour
     public GameObject startPanel;       // 시작 패널
     public GameObject endPanel;
     public GameObject gameOver;         // 게임 오버 패널
+    public GameObject gameClear;
 
     public Text timerText;              // 제한 시간 확인 텍스트
     private float timeRemaining;        // 잔여 시간 관리 변수
     bool isTimerRunning = true;         // 타이머 진행 여부
+    public bool isRecovery = false;
 
     public TextMeshProUGUI startText;   // 시작 안내 문구
     public TextMeshProUGUI talkText;    // 게임창에 뜨는 텍스트
@@ -158,6 +160,7 @@ public class GameManager : MonoBehaviour
         audioManager.PlaySound("Drinking");
         if (makePotion.isPerfect)
         {
+            isRecovery = true;
             StopTimer();
             timerText.color = Color.green;
             startTextNum = 10;
@@ -181,6 +184,13 @@ public class GameManager : MonoBehaviour
         StopTimer();
         timerText.color = Color.red;
         gameOver.SetActive(true);
+    }
+
+    public void GameClear()
+    {
+        StopTimer();
+        timerText.color = Color.green;
+        gameClear.SetActive(true);
     }
 
     // Modified coroutine to display text one by one

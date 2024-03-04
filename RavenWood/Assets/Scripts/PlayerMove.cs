@@ -53,6 +53,20 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Outside"))
+        {
+            if (manager.isRecovery)
+            {
+                manager.GameClear();
+            }
+            else
+            {
+                manager.GameOver();
+            }
+        }
+    }
 
     private void Update()
     {
