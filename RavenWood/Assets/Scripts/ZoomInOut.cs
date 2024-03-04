@@ -125,10 +125,16 @@ public class ZoomInOut : MonoBehaviour
 
         backButton.SetActive(false);
         playerMove.EnableRotation();
+        zoomObject.SetActive(true);
+
+        ZoomOut();
+    }
+
+    public void ZoomOut()
+    {
         transform.SetParent(playerMove.transform);
         transform.rotation = currentRotation;
         transform.localPosition = new Vector3(0f, 0.6f, 0f);
-        zoomObject.SetActive(true);
         ZoomIn = false;
     }
 }
