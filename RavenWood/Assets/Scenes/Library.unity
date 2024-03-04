@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17067,6 +17067,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582033492}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &585508488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1577334196175160, guid: 4f2881ce5dce9be4bbdcaf2ea1faa638, type: 3}
+  m_PrefabInstance: {fileID: 1007445948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &588217997
 GameObject:
   m_ObjectHideFlags: 0
@@ -32978,6 +32983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteCreamCheese_41 Tris
       objectReference: {fileID: 0}
+    - target: {fileID: 1577334196175160, guid: 4f2881ce5dce9be4bbdcaf2ea1faa638, type: 3}
+      propertyPath: m_TagString
+      value: ObtainableObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4719327522603072, guid: 4f2881ce5dce9be4bbdcaf2ea1faa638, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.027999999
@@ -33033,13 +33042,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1577334196175160, guid: 4f2881ce5dce9be4bbdcaf2ea1faa638, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1007445953}
   m_SourcePrefab: {fileID: 100100000, guid: 4f2881ce5dce9be4bbdcaf2ea1faa638, type: 3}
 --- !u!4 &1007445949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4719327522603072, guid: 4f2881ce5dce9be4bbdcaf2ea1faa638, type: 3}
   m_PrefabInstance: {fileID: 1007445948}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1007445953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585508488}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3a45114cc17eb34449796839cf6f0a17, type: 3}
 --- !u!1 &1010217570
 GameObject:
   m_ObjectHideFlags: 0
@@ -37853,7 +37887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1383930274
 Light:
   m_ObjectHideFlags: 0
