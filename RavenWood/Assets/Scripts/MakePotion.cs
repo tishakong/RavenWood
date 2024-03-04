@@ -6,6 +6,7 @@ using UnityEngine;
 public class MakePotion : MonoBehaviour
 {
     public GameManager gameManager;
+    public AudioManager audioManager;
 
     public float rotateSpeed;
     public Renderer resultRenderer;
@@ -75,7 +76,9 @@ public class MakePotion : MonoBehaviour
     IEnumerator BoilForSeconds(float seconds)
     {
         isBoiling = true;
+        audioManager.PlaySound("Boiling");
         yield return new WaitForSeconds(seconds);
+        Destroy(GameObject.Find("ADBoiling"));
         isBoiling = false;
 
         if (list.Count > 0)
@@ -92,7 +95,7 @@ public class MakePotion : MonoBehaviour
             {
                 isPerfect = true;
             }
-
+            list.Clear();
             ChangeColor(isWine, isPoison, isPerfect);
         }
     }

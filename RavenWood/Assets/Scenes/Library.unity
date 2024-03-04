@@ -12092,6 +12092,7 @@ MonoBehaviour:
   clickManager: {fileID: 913593529}
   zoom: {fileID: 810312037}
   playerMove: {fileID: 1402348668}
+  audioManager: {fileID: 1581860150}
   makePotion: {fileID: 444007926}
   mainCamera: {fileID: 810312039}
   talkPanel: {fileID: 1909300753}
@@ -14527,6 +14528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d112d170445acc74fb3f068733f7df6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioManager: {fileID: 1581860150}
 --- !u!1 &379887015
 GameObject:
   m_ObjectHideFlags: 0
@@ -15391,6 +15393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 221628463}
+  audioManager: {fileID: 1581860150}
   rotateSpeed: 5
   resultRenderer: {fileID: 444007927}
   isBurning: 0
@@ -31655,6 +31658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMove: {fileID: 1402348668}
+  audioManager: {fileID: 1581860150}
 --- !u!4 &887775124
 Transform:
   m_ObjectHideFlags: 0
@@ -38725,6 +38729,7 @@ MonoBehaviour:
   scanObject: {fileID: 0}
   selectedItem: {fileID: 0}
   manager: {fileID: 221628463}
+  audioManager: {fileID: 1581860150}
   inventoryManager: {fileID: 870404368}
   item: {fileID: 887775123}
   zoom: {fileID: 810312037}
@@ -45819,6 +45824,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568726737}
   m_Mesh: {fileID: 4300002, guid: 02fece05d50850b4581df192f6bc3df8, type: 3}
+--- !u!114 &1581860150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8076063939067409472, guid: 732a96d2ab9153940b5fe9828f521489, type: 3}
+  m_PrefabInstance: {fileID: 115101187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5db7215bcdd19e4781c7dac019690e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1589854376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56475,6 +56491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d112d170445acc74fb3f068733f7df6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioManager: {fileID: 1581860150}
 --- !u!1 &1945532213
 GameObject:
   m_ObjectHideFlags: 0

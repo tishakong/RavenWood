@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject selectedItem;
 
     public GameManager manager;
+    public AudioManager audioManager;
     public InventoryManager inventoryManager;
     public Item item;
     public ZoomInOut zoom;
@@ -204,6 +205,7 @@ public class PlayerMove : MonoBehaviour
         if (inventoryManager.isInventoryActivate)
         {
             inventoryManager.AddToInventory(scanObject.name);
+            audioManager.PlaySound("GetItem");
             if (scanObject.name == "Tomato")
             {
                 scanObject.tag = "Untagged";
@@ -216,6 +218,7 @@ public class PlayerMove : MonoBehaviour
             if (scanObject.name == "Inventory")
             {
                 Destroy(scanObject);
+                audioManager.PlaySound("GetItem");
                 inventoryManager.ShowInventory();
             }
             else

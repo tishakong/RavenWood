@@ -55,6 +55,7 @@ MonoBehaviour:
   ADDoor: {fileID: 8300000, guid: 34c260d38280e2147b191076236da765, type: 3}
   ADKey: {fileID: 8300000, guid: 60f9743d4627a3c449cec58d4f17f17b, type: 3}
   ADCloset: {fileID: 8300000, guid: 414f0c03a04bd6448888fafae715a598, type: 3}
+  ADDead: {fileID: 8300000, guid: 7797cd4ba5656f643b74ed77f405e9c6, type: 3}
   audioSource: {fileID: 0}
 --- !u!82 &8768640960053327987
 AudioSource:

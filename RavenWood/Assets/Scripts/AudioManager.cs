@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip ADDoor;
     public AudioClip ADKey;
     public AudioClip ADCloset;
+    public AudioClip ADDead;
 
     public AudioSource audioSource;
 
@@ -51,6 +52,8 @@ public class AudioManager : MonoBehaviour
                 audioSource.clip = ADKey; break;
             case "Closet":
                 audioSource.clip = ADCloset; break;
+            case "Dead":
+                audioSource.clip = ADDead; break;
         }
         audioSource.Play();
         Destroy(go, audioSource.clip.length);
