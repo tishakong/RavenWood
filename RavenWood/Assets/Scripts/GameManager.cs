@@ -157,6 +157,7 @@ public class GameManager : MonoBehaviour
 
     public void PotionEnding()
     {
+        zoom.ZoomOut();
         audioManager.PlaySound("Drinking");
         if (makePotion.isPerfect)
         {
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
         StopTimer();
         timerText.color = Color.red;
         gameOver.SetActive(true);
+        isAction = false;
     }
 
     public void GameClear()
