@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerMove playerMove;
     public MakePotion makePotion;
+    public Camera mainCamera;
 
     public GameObject talkPanel;        // 인포창 UI
     public GameObject hintPanel;        // 힌트창 UI
@@ -21,10 +23,12 @@ public class GameManager : MonoBehaviour
     private float timeRemaining;        // 잔여 시간 관리 변수
     bool isTimerRunning = true;         // 타이머 진행 여부
 
+    public TextMeshProUGUI startText;   // 시작 안내 문구
     public TextMeshProUGUI talkText;    // 게임창에 뜨는 텍스트
     public TextMeshProUGUI hintText;    // 힌트창에 뜨는 텍스트
     public GameObject scanObject;       // 플레이어가 조사한 대상
     public bool isAction;               // 상태 저장용 변수
+    int startTextNum;
 
     private float panelHideDelay = 3f;
 
@@ -148,10 +152,11 @@ public class GameManager : MonoBehaviour
         {
             StopTimer();
             timerText.color = Color.green;
+            RightPosionEndingPanel();
         }
         else
         {
-            GameOver();
+            WrongPotionEndingPanel();
         }
     }
 
@@ -161,4 +166,91 @@ public class GameManager : MonoBehaviour
         timerText.color = Color.red;
         gameOver.SetActive(true);
     }
-}
+
+    public void WrongPotionEndingPanel()
+    {
+        startTextNum++;
+        if (startTextNum == 1)
+        {
+            mainCamera.AddComponent<SmoothCameraRotation>();
+            startText.text = "(꿀꺽 꿀꺽)";
+        }
+        if (startTextNum == 2)
+        {
+            startText.text = "(털썩)";
+        }
+        else if (startTextNum == 3)
+        {
+            startText.text = "...";
+        }
+        else if (startTextNum == 4)
+        {
+            startText.text = "이럴 수가...";
+        }
+        else if (startTextNum == 5)
+        {
+            startText.text = "설마 잘못된 약물을 넣은 것인가...";
+        }
+        else if (startTextNum == 6)
+        {
+            startText.text = "...";
+        }
+        else if (startTextNum == 7)
+        {
+            SmoothCameraRotation smoothCameraRotation = mainCamera.GetComponent<SmoothCameraRotation>();
+            if (smoothCameraRotation != null)
+            {
+                smoothCameraRotation.isStart = true;
+            }
+            else
+            {
+                Debug.LogWarning("SmoothCameraRotation script not found on mainCamera!"); // 스크립트를 찾지 못한 경우 경고를 출력합니다.
+            }
+            startPanel.SetActive(false);
+            GameOver();
+        }
+    }
+        public void RightPosionEndingPanel()
+        {
+            startTextNum++;
+            if (startTextNum == 1)
+            {
+                mainCamera.AddComponent<SmoothCameraRotation>();
+                startText.text = "(꿀꺽 꿀꺽)";
+            }
+            if (startTextNum == 2)
+            {
+                startText.text = "...";
+            }
+            else if (startTextNum == 3)
+            {
+                startText.text = "이럴 수가...";
+            }
+            else if (startTextNum == 4)
+            {
+                startText.text = "몸이 훨씬 가벼워졌어.";
+            }
+            else if (startTextNum == 5)
+            {
+                startText.text = "독이 해독된건가!";
+            }
+            else if (startTextNum == 6)
+            {
+                startText.text = "이제 이 방을 나갈 방법을 찾아야겠군.";
+            }
+            else if (startTextNum == 7)
+            {
+                SmoothCameraRotation smoothCameraRotation = mainCamera.GetComponent<SmoothCameraRotation>();
+                if (smoothCameraRotation != null)
+                {
+                    smoothCameraRotation.isStart = true;
+                }
+                else
+                {
+                    Debug.LogWarning("SmoothCameraRotation script not found on mainCamera!"); // 스크립트를 찾지 못한 경우 경고를 출력합니다.
+                }
+                startPanel.SetActive(false);
+            }
+
+        }
+    }
