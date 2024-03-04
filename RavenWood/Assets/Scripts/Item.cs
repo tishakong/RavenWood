@@ -98,15 +98,21 @@ public class Item : MonoBehaviour
 
     void OpenDoorWithKey()
     {
+        print("Key를 사용함");
         if (target.name.Contains("Door"))
         {
-            string itemWithoutKey = item.name.Replace("Key", "");
-            string targetWithoutDoor = target.transform.parent.name.Replace("Door", "");
-            if (itemWithoutKey==targetWithoutDoor)
+            print("상호작용한 오브젝트가 Door임");
+            string TargetKey = item.name.Replace("Key", "");
+            string TargetDoorParent = target.transform.parent.name.Replace("Door", "");
+            string TargetDoor = target.name.Replace("Door", "");
+            if (TargetKey==TargetDoor || TargetKey==TargetDoorParent)
             {
+                print("키와 도어명이 일치함");
                 playerMove.DoorEvent();
+                Destroy(item);
+                Destroy(target.GetComponent<ObjectData>());
+                Destroy(target.GetComponentInParent<ObjectData>());
             }
         }
-        Destroy(item);
     }
 }
